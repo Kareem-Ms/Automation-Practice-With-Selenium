@@ -8,6 +8,10 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.UserRegisterResultPage;
 import pages.UserRegistrationPage;
+import utils.JsonFileManager;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static utils.BrowserAction.closeAllBrowserTabs;
 import static utils.BrowserFactory.getDriver;
@@ -15,10 +19,11 @@ import static utils.BrowserFactory.getDriver;
 public class UserRegistrationTest {
 
     WebDriver driver;
-
+    JsonFileManager JsonObject;
     HomePage homeObject;
     UserRegistrationPage RegisterObject ;
     UserRegisterResultPage ResultObject;
+    String currentTime = new SimpleDateFormat("ddMMyyyyHHmmssSSS").format(new Date());
 
     //hna hbd2 a7ot el test cases lel register
     @Test
@@ -29,16 +34,21 @@ public class UserRegistrationTest {
 
         //keda ana dost 3ala el link
         homeObject.openRegistrationPage();
+        String email = JsonObject.getTestData("users.Email")+currentTime+"@"+JsonObject.getTestData("users.emailDomain");
+        String password = JsonObject.getTestData("users.Password");
+
         //b3d keda ha3rf el Register object
-        RegisterObject.registerWithRequiredFields("Mohamed","Ahmed","Mohamedr@gmail.com","tester123","tester123");
+        RegisterObject.registerWithRequiredFields(JsonObject.getTestData("users.firstname"),
+                JsonObject.getTestData("users.LastName"),email,password,password);
         //we will check that the user is registered
         String msg = ResultObject.checkmsg();
-        Assert.assertEquals(msg,"Your registration completed");
+        Assert.assertEquals(msg, JsonObject.getTestData("messages.RegisterSuccessfully"));
     }
 
     @BeforeMethod
     public void startup(){
         driver = getDriver("chrome");
+        JsonObject = new JsonFileManager("src/test/data/RegisterTestData.json");
         homeObject = new HomePage(driver);
         RegisterObject = new UserRegistrationPage(driver);
         ResultObject = new UserRegisterResultPage(driver);

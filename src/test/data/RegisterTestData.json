@@ -2,13 +2,11 @@
   "users": {
     "firstname":"Mohamed",
     "LastName": "ahmed",
-    "RegisteredEmail": "Mohamed",
-    "UnRegisteredEmail": "moh",
+    "Email": "Mohamed",
     "emailDomain": "gmail.com",
     "Password": "tester123"
   },
   "messages": {
-    "LoginFail": "\"Login was unsuccessful. Please correct the errors and try again.\\n\" +\n                \"No customer account found\"",
-    "LoginSuccessfully": "Log out"
+    "RegisterSuccessfully": "Your registration completed"
   }
 }

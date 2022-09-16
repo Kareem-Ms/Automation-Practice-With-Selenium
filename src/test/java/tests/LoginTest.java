@@ -25,7 +25,7 @@ public class LoginTest{
     LoginPage LoginObject;
     WebDriver driver;
 
-    String currentTime = new SimpleDateFormat("ddMMyyyyHHmmssSSS").format(new Date());
+
 
     //need to be maintained it should start it from register
     @Test
@@ -33,9 +33,6 @@ public class LoginTest{
         HomeObject.openLoginPage();
         String email = JsonObject.getTestData("users.RegisteredEmail")+"@"+JsonObject.getTestData("users.emailDomain");
         String password = JsonObject.getTestData("users.Password");
-
-      //  UserRegisterObject.registerWithRequiredFields(JsonObject.getTestData("firstname"),
-        //        JsonObject.getTestData("LastName"),email,password,password);
 
         LoginObject.Login(email,password);
         String Result = HomeObject.CheckLougoutLink();
@@ -45,10 +42,10 @@ public class LoginTest{
     @Test
     public void CheckLoginFaild(){
         HomeObject.openLoginPage();
-        LoginObject.Login("ppp55@gmail.com","tester123");
+
+        LoginObject.Login(JsonObject.getTestData("users.UnRegisteredEmail"),JsonObject.getTestData("users.Password"));
         String Result = LoginObject.getLoginErrorMessage();
-        Assert.assertEquals(Result,"Login was unsuccessful. Please correct the errors and try again.\n" +
-                "No customer account found");
+        Assert.assertEquals(Result,JsonObject.getTestData("messages.LoginFail"));
 
     }
 

@@ -21,8 +21,10 @@ public class MyAccountTest {
 
     @Test
     public void ChangePasswordSuccessfully(){
+
         HomePageObject = new HomePage(driver);
         HomePageObject.openLoginPage();
+
         String NewPassword = "tester1234";
         String email = "Mohamed@gmail.com";
         String OldPassword = "tester123";
