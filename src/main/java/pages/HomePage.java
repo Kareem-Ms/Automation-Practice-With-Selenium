@@ -42,6 +42,10 @@ public class HomePage {
         return actionObject.getText(LogoutLinkLocator);
     }
 
+    public void logOut(){
+        actionObject.click(LogoutLinkLocator);
+    }
+
     public void openMyAccount(){
         actionObject.click(MyAccountLinkLocator);
     }

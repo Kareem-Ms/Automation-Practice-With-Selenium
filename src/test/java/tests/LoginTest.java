@@ -30,13 +30,16 @@ public class LoginTest{
     //need to be maintained it should start it from register
     @Test
     public void CheckLoginSuccessfully(){
-        HomeObject.openLoginPage();
-        String email = JsonObject.getTestData("users.RegisteredEmail")+"@"+JsonObject.getTestData("users.emailDomain");
+        HomeObject.openRegistrationPage();
+        String email = JsonObject.getTestData("users.RegisteredEmail")+currentTime+"@"+JsonObject.getTestData("users.emailDomain");
         String password = JsonObject.getTestData("users.Password");
-
-      //  UserRegisterObject.registerWithRequiredFields(JsonObject.getTestData("firstname"),
-        //        JsonObject.getTestData("LastName"),email,password,password);
-
+        //register using data
+        UserRegisterObject.registerWithRequiredFields(JsonObject.getTestData("users.FirstName"),
+                JsonObject.getTestData("users.LastName"),email,password,password);
+        //logout
+        HomeObject.logOut();
+        //Login
+        HomeObject.openLoginPage();
         LoginObject.Login(email,password);
         String Result = HomeObject.CheckLougoutLink();
         Assert.assertEquals(Result, JsonObject.getTestData("messages.LoginSuccessfully"));
@@ -45,11 +48,10 @@ public class LoginTest{
     @Test
     public void CheckLoginFaild(){
         HomeObject.openLoginPage();
-        LoginObject.Login("ppp55@gmail.com","tester123");
+        String UnregisterEmail = JsonObject.getTestData("users.UnRegisteredEmail")+"@"+JsonObject.getTestData("users.emailDomain");
+        LoginObject.Login(UnregisterEmail,JsonObject.getTestData("users.Password"));
         String Result = LoginObject.getLoginErrorMessage();
-        Assert.assertEquals(Result,"Login was unsuccessful. Please correct the errors and try again.\n" +
-                "No customer account found");
-
+        Assert.assertEquals(Result,JsonObject.getTestData("messages.LoginFail"));
     }
 
     @BeforeMethod
