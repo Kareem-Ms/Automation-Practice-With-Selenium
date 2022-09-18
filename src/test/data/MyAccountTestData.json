@@ -1,0 +1,13 @@
+{
+  "users": {
+    "firstname":"Mohamed",
+    "LastName": "ahmed",
+    "Email": "Mohamed",
+    "emailDomain": "gmail.com",
+    "OldPassword": "tester123",
+    "NewPassword": "tester1234"
+  },
+  "messages": {
+    "PasswordChanged": "Password was changed"
+  }
+}
