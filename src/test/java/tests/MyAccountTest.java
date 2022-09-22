@@ -1,7 +1,6 @@
 package tests;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.json.Json;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -37,6 +36,7 @@ public class MyAccountTest {
         String email = JsonObject.getTestData("users.Email")+currentTime+"@"+JsonObject.getTestData("users.emailDomain");
         String OldPassword = JsonObject.getTestData("users.OldPassword");
         String NewPassword = JsonObject.getTestData("users.NewPassword");
+
         UserRegisterObject.registerWithRequiredFields(JsonObject.getTestData("users.firstname"),
                 JsonObject.getTestData("users.LastName"),email,OldPassword,OldPassword);
 

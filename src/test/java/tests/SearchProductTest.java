@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.ProductDetailsPage;
 import pages.SearchPage;
+import utils.JsonFileManager;
 
 import static utils.BrowserAction.closeAllBrowserTabs;
 import static utils.BrowserFactory.getDriver;
@@ -15,6 +16,7 @@ import static utils.BrowserFactory.getDriver;
 public class SearchProductTest {
 
     WebDriver driver;
+    JsonFileManager JsonObject;
 
     HomePage homePageObject;
     SearchPage SearchPageObject;
@@ -22,20 +24,21 @@ public class SearchProductTest {
 
     @Test
     public void SearchForProduct(){
-        String Product_name = "Apple MacBook Pro 13-inch";
+        String Product_name = JsonObject.getTestData("FullProductName");
         SearchPageObject.searchForProductCompleteName(Product_name);
         Assert.assertEquals(ProductObject.getProductTitle(),Product_name);
     }
 
     @Test
     public void SearchForProductAutoComplete(){
-        String Product_name = "MacB";
+        String Product_name = JsonObject.getTestData("AutoCompleteProductName");
         SearchPageObject.searchProductAutoComplete(Product_name,0);
         Assert.assertTrue(ProductObject.getProductName().contains(Product_name));
     }
 
     @BeforeMethod
     public void startUp(){
+        JsonObject = new JsonFileManager("src/test/data/SearchProductTestData.json");
         driver = getDriver("chrome");
         homePageObject = new HomePage(driver);
         SearchPageObject = new SearchPage(driver);
