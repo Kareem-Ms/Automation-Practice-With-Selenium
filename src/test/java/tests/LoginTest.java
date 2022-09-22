@@ -25,7 +25,7 @@ public class LoginTest{
     LoginPage LoginObject;
     WebDriver driver;
 
-
+    String currentTime = new SimpleDateFormat("ddMMyyyyHHmmssSSS").format(new Date());
 
     //need to be maintained it should start it from register
     @Test

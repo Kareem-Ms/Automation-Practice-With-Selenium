@@ -1,7 +1,10 @@
 {
   "users": {
-    "RegisteredEmail": "Mohamed@gmail.com",
-    "UnRegisteredEmail": "moh@gmail.com",
+    "RegisteredEmail": "Mohamed",
+    "UnRegisteredEmail": "moh",
+    "FirstName":"Mohamed",
+    "LastName":"Ahmed",
+    "emailDomain": "gmail.com",
     "Password": "tester123"
   },
   "messages": {
