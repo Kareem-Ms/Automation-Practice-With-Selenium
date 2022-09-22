@@ -13,8 +13,8 @@ public class HomePage {
     String url = "https://demo.nopcommerce.com/";
 
     public HomePage(WebDriver driver) {
-       this.driver = driver;
-       actionObject = new ElementActions(driver);
+        this.driver = driver;
+        actionObject = new ElementActions(driver);
     }
 
     By registerLinkLocator = By.className("ico-register");
@@ -40,6 +40,10 @@ public class HomePage {
 
     public String CheckLougoutLink(){
         return actionObject.getText(LogoutLinkLocator);
+    }
+
+    public void logOut(){
+        actionObject.click(LogoutLinkLocator);
     }
 
     public void openMyAccount(){

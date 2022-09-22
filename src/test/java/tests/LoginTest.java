@@ -30,9 +30,17 @@ public class LoginTest{
     //need to be maintained it should start it from register
     @Test
     public void CheckLoginSuccessfully(){
-        HomeObject.openLoginPage();
-        String email = JsonObject.getTestData("users.RegisteredEmail")+"@"+JsonObject.getTestData("users.emailDomain");
+        HomeObject.openRegistrationPage();
+        String email = JsonObject.getTestData("users.RegisteredEmail")+currentTime+"@"+JsonObject.getTestData("users.emailDomain");
         String password = JsonObject.getTestData("users.Password");
+
+        //register using data
+        UserRegisterObject.registerWithRequiredFields(JsonObject.getTestData("users.FirstName"),
+                JsonObject.getTestData("users.LastName"),email,password,password);
+        //logout
+        HomeObject.logOut();
+        //Login
+        HomeObject.openLoginPage();
 
         LoginObject.Login(email,password);
         String Result = HomeObject.CheckLougoutLink();
@@ -43,7 +51,8 @@ public class LoginTest{
     public void CheckLoginFaild(){
         HomeObject.openLoginPage();
 
-        LoginObject.Login(JsonObject.getTestData("users.UnRegisteredEmail"),JsonObject.getTestData("users.Password"));
+        String UnregisterEmail = JsonObject.getTestData("users.UnRegisteredEmail")+"@"+JsonObject.getTestData("users.emailDomain");
+        LoginObject.Login(UnregisterEmail,JsonObject.getTestData("users.Password"));
         String Result = LoginObject.getLoginErrorMessage();
         Assert.assertEquals(Result,JsonObject.getTestData("messages.LoginFail"));
 
