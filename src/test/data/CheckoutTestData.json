@@ -1,0 +1,18 @@
+{
+  "users": {
+    "RegisteredEmail": "Mohamed",
+    "UnRegisteredEmail": "moh",
+    "FirstName":"Mohamed",
+    "LastName":"Ahmed",
+    "emailDomain": "gmail.com",
+    "Password": "tester123"
+  },
+  "Product": {
+    "FullProductName": "Apple MacBook Pro 13-inch"
+  },
+  "messages": {
+    "RegisterSuccessfully": "Your registration completed",
+    "LoginFail": "Login was unsuccessful. Please correct the errors and try again.\nNo customer account found",
+    "LoginSuccessfully": "Log out"
+  }
+}
