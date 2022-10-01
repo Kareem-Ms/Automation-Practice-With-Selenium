@@ -25,6 +25,8 @@ public class HomePage {
 
     By MyAccountLinkLocator = By.className("ico-account");
 
+    By ShoppingCartLink = By.id("topcartlink");
+
     public void navigateToHomePage(){
         navigateToUrl(driver,url);
     }
@@ -46,8 +48,14 @@ public class HomePage {
         actionObject.click(LogoutLinkLocator);
     }
 
+
+
     public void openMyAccount(){
         actionObject.click(MyAccountLinkLocator);
+    }
+
+    public void openShoppingCart(){
+        actionObject.click(ShoppingCartLink);
     }
 
 }

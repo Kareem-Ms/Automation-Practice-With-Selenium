@@ -27,4 +27,5 @@ public class SearchPage {
        actionsObject.type(SearchfieldLocator,abbreviation);
        actionsObject.SelectFromList(AutoCompleteListLocator,index);
    }
+
 }
