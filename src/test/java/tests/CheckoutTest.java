@@ -34,6 +34,7 @@ public class CheckoutTest {
     UserRegisterResultPage ResultObject;
     SearchPage SearchPageObject;
     ProductDetailsPage ProductObject;
+    ShoppingCartPage CartObject;
     String currentTime = new SimpleDateFormat("ddMMyyyyHHmmssSSS").format(new Date());
 
     @Test
@@ -50,21 +51,36 @@ public class CheckoutTest {
     }
 
     @Test(dependsOnMethods = "RegisterNewUser")
-    public void SearchForProductAutoComplete() {
-        String Product_name = JsonObject.getTestData("Product.AutoCompleteProductName");
-        SearchPageObject.searchProductAutoComplete(Product_name, 0);
-        Assert.assertTrue(ProductObject.getProductName().contains(Product_name));
+    public void SearchForProductCompleteName() {
+        String Product_name = JsonObject.getTestData("Product.CompleteProductName");
+        SearchPageObject.searchForProductCompleteName(Product_name);
+        SearchPageObject.openProjectDetailsPage(Product_name);
+        Assert.assertEquals(ProductObject.getProductName(),Product_name);
     }
 
-    @Test(dependsOnMethods = "SearchForProductAutoComplete")
+    @Test(dependsOnMethods = "SearchForProductCompleteName")
     public void AddProductToCart() {
         //Add product to cart
         String quantity = JsonObject.getTestData("Product.quantity");
+        String Product_name = JsonObject.getTestData("Product.CompleteProductName");
         ProductObject.AddProductToCart(quantity);
         Assert.assertEquals(ProductObject.getSucessmsg(), JsonObject.getTestData("messages.AddToCartSuccessfully"));
 
         //Check if quantity and price are correct in the cart
-        homeObject.openShoppingCart();
+        homeObject.openNotificationShoppingCart();
+        Assert.assertEquals(CartObject.getProductQuantityInCart(Product_name),quantity);
+
+        //Check if the total price is calculated correctly in shopping cart
+        String ProductTotalPrice = CartObject.getProductTotalPrice(Product_name);
+        Assert.assertEquals(ProductTotalPrice,CartObject.getProductCalculatedTotalPrice(Product_name));
+
+        //check if the total price in table equal to total order price
+        Assert.assertEquals(CartObject.getOrderTotalPrice(),ProductTotalPrice);
+    }
+
+    @Test(dependsOnMethods = "AddProductToCart")
+    public void Checkout(){
+        CartObject.NavigateToCheckoutPage();
 
     }
 
@@ -80,6 +96,8 @@ public class CheckoutTest {
         ResultObject = new UserRegisterResultPage(driver);
         SearchPageObject = new SearchPage(driver);
         ProductObject = new ProductDetailsPage(driver);
+        CartObject = new ShoppingCartPage(driver);
+
     }
 
     @AfterClass

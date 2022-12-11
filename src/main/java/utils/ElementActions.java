@@ -200,6 +200,20 @@ public class ElementActions {
     }
 
 
+    //    @Step("Get the Text of element: [{elementLocator}]")
+    public static String getAccessibleName(WebDriver driver, By elementLocator) {
+        locatingElementStrategy(driver, elementLocator);
+        try {
+            String text = driver.findElement(elementLocator).getAccessibleName();
+            return text;
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public String getAccessibleName(By elementLocator){
+        return getAccessibleName(driver, elementLocator);
+    }
 
 
 

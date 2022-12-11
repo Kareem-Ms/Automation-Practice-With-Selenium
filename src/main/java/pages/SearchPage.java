@@ -28,4 +28,9 @@ public class SearchPage {
        actionsObject.SelectFromList(AutoCompleteListLocator,index);
    }
 
+   public void openProjectDetailsPage(String ProductName){
+       String ProductLinkxpath = "//h2[@class ='product-title']//a[text()='"+ProductName+"']";
+       actionsObject.click(By.xpath(ProductLinkxpath));
+   }
+
 }

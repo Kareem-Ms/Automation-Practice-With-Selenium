@@ -27,6 +27,8 @@ public class HomePage {
 
     By ShoppingCartLink = By.id("topcartlink");
 
+    By ShoppingCartNotificationLink = By.xpath("//p[@class = 'content']//a[text() ='shopping cart' ]");
+
     public void navigateToHomePage(){
         navigateToUrl(driver,url);
     }
@@ -56,6 +58,10 @@ public class HomePage {
 
     public void openShoppingCart(){
         actionObject.click(ShoppingCartLink);
+    }
+
+    public void openNotificationShoppingCart(){
+        actionObject.click(ShoppingCartNotificationLink);
     }
 
 }

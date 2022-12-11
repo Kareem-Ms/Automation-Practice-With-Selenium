@@ -16,8 +16,8 @@ public class ProductDetailsPage {
 
     By ProductNameLocator = By.className("product-name");
     By ProductTitleLocator = By.className("product-title");
-    By ProductQuantityTextBoxLocator = By.id("product_enteredQuantity_4");
-    By AddToCartLocator = By.id("add-to-cart-button-4");
+    By ProductQuantityTextBoxLocator = By.xpath("//div//input[@class = 'qty-input']");
+    By AddToCartLocator = By.className("add-to-cart-button");
     By SucessMessage = By.cssSelector("p.content");
 
 

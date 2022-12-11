@@ -7,7 +7,7 @@
     "Password": "tester123"
   },
   "Product": {
-    "AutoCompleteProductName": "MacB",
+    "CompleteProductName": "Apple MacBook Pro 13-inch",
     "quantity": "3"
   },
   "messages": {
