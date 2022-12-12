@@ -10,10 +10,18 @@
     "CompleteProductName": "Apple MacBook Pro 13-inch",
     "quantity": "3"
   },
+  "BillingAddress": {
+    "CountryName": "Albania",
+    "City": "London",
+    "Address1": "14 Main street",
+    "ZipCode": "2205",
+    "PhoneNumber":"01129366522"
+  },
   "messages": {
     "RegisterSuccessfully": "Your registration completed",
     "LoginFail": "Login was unsuccessful. Please correct the errors and try again.\nNo customer account found",
     "LoginSuccessfully": "Log out",
-    "AddToCartSuccessfully": "The product has been added to your shopping cart"
+    "AddToCartSuccessfully": "The product has been added to your shopping cart",
+    "OrderConfirmedSuccessfully": "Your order has been successfully processed!"
   }
 }

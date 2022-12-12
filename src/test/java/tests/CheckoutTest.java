@@ -35,6 +35,7 @@ public class CheckoutTest {
     SearchPage SearchPageObject;
     ProductDetailsPage ProductObject;
     ShoppingCartPage CartObject;
+    CheckoutPage CheckoutObject;
     String currentTime = new SimpleDateFormat("ddMMyyyyHHmmssSSS").format(new Date());
 
     @Test
@@ -81,6 +82,15 @@ public class CheckoutTest {
     @Test(dependsOnMethods = "AddProductToCart")
     public void Checkout(){
         CartObject.NavigateToCheckoutPage();
+        CheckoutObject.FillCheckoutInformation(JsonObject.getTestData("BillingAddress.CountryName"),
+                JsonObject.getTestData("BillingAddress.City"),
+                JsonObject.getTestData("BillingAddress.Address1"),
+                JsonObject.getTestData("BillingAddress.ZipCode"),
+                JsonObject.getTestData("BillingAddress.PhoneNumber"));
+
+        //Check if the order is done successfully
+        Assert.assertEquals(CheckoutObject.getConfirmMessage(),JsonObject.getTestData("messages.OrderConfirmedSuccessfully"));
+
 
     }
 
@@ -97,6 +107,7 @@ public class CheckoutTest {
         SearchPageObject = new SearchPage(driver);
         ProductObject = new ProductDetailsPage(driver);
         CartObject = new ShoppingCartPage(driver);
+        CheckoutObject = new CheckoutPage(driver);
 
     }
 
