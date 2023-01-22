@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import utils.ElementActions;
 
 public class CheckoutPage {
+
     WebDriver driver;
     ElementActions actionObject;
     CheckoutBillingAddressPage BillingAddressObject;

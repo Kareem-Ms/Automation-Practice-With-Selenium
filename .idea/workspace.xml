@@ -5,12 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d603288-2a20-43e3-a748-64b7bd4b8fab" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/SeleniumGrid/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/CheckoutPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/CheckoutPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/BrowserAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/BrowserAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/BrowserFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/BrowserFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/data/CheckoutTestData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/data/CheckoutTestData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/data/LoginTestData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/data/LoginTestData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/data/MyAccountTestData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/data/MyAccountTestData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/data/RegisterTestData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/data/RegisterTestData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/data/SearchProductTestData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/data/SearchProductTestData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/CheckoutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CheckoutTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/MyAccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/MyAccountTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/SearchProductTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/SearchProductTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/UserRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/UserRegistrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pages/CheckoutPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/CheckoutPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/BrowserAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/BrowserAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utils/BrowserFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/BrowserFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/tests/CheckoutTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/CheckoutTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tests/LoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/LoginTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tests/MyAccountTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/MyAccountTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tests/SearchProductTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/SearchProductTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tests/UserRegistrationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/UserRegistrationTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testng.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,13 +55,64 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kemo\IdeaProjects\Taf\src\main\resources\features" />
       <recent name="C:\Users\kemo\IdeaProjects\Taf\drivers" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="TestNG.C:/Users/kemo/IdeaProjects/Taf/testng.xml">
+    <configuration name="Scenario: Login successfully (1)" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/main/resources/features/Login.feature" />
+      <option name="GLUE" value="StepDefentition" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="Taf" />
+      <option name="NAME_FILTER" value="^Login successfully$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Login successfully$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Login successfully" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Login successfully" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/Login.feature" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="Taf" />
+      <option name="NAME_FILTER" value="^Login successfully$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Login successfully$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Login successfully" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="C:/Users/kemo/IdeaProjects/Taf/testng.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Taf" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/testng.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CheckoutTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Taf" />
       <extension name="coverage">
@@ -61,9 +130,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LoginTest.CheckLoginSuccessfully" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Taf" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.LoginTest" />
+      <option name="METHOD_NAME" value="CheckLoginSuccessfully" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.C:/Users/kemo/IdeaProjects/Taf/testng.xml" />
         <item itemvalue="TestNG.CheckoutTest" />
+        <item itemvalue="TestNG.LoginTest.CheckLoginSuccessfully" />
+        <item itemvalue="Cucumber Java.Scenario: Login successfully (1)" />
+        <item itemvalue="Cucumber Java.Scenario: Login successfully" />
       </list>
     </recent_temporary>
   </component>
@@ -77,7 +168,19 @@
       <updated>1670610075755</updated>
       <workItem from="1670610078726" duration="5372000" />
       <workItem from="1670779664885" duration="6425000" />
-      <workItem from="1670873430598" duration="3449000" />
+      <workItem from="1670873430598" duration="4096000" />
+      <workItem from="1671815311605" duration="176000" />
+      <workItem from="1672678424278" duration="839000" />
+      <workItem from="1672679558183" duration="1677000" />
+      <workItem from="1673210443376" duration="2965000" />
+      <workItem from="1673813624805" duration="4395000" />
+      <workItem from="1673979197988" duration="1489000" />
+      <workItem from="1674234988951" duration="4664000" />
+      <workItem from="1674323045999" duration="2899000" />
+      <workItem from="1674326147698" duration="89000" />
+      <workItem from="1674326408166" duration="4080000" />
+      <workItem from="1674411098372" duration="781000" />
+      <workItem from="1674412085048" duration="6462000" />
     </task>
     <servers />
   </component>

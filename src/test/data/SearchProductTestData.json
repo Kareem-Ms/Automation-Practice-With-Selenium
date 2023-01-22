@@ -1,4 +1,8 @@
 {
   "FullProductName": "Apple MacBook Pro 13-inch",
   "AutoCompleteProductName": "MacB",
+  "config": {
+    "BrowserName": "chrome",
+    "ExecutionType": "local"
+  }
 }

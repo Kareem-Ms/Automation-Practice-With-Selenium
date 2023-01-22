@@ -9,62 +9,70 @@ import pages.CustomerInfoPage;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.UserRegistrationPage;
+import utils.BrowserFactory;
 import utils.JsonFileManager;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static utils.BrowserAction.closeAllBrowserTabs;
-import static utils.BrowserFactory.getDriver;
+import static utils.BrowserFactory.getBrowser;
+
 
 public class MyAccountTest {
 
-    HomePage HomePageObject;
-    LoginPage LoginPageObject;
-    UserRegistrationPage UserRegisterObject;
-    CustomerInfoPage CustomerPageObject;
+    HomePage homePage;
+    UserRegistrationPage userRegistrationPage;
+    LoginPage loginPage;
+    CustomerInfoPage customerInfoPage;
     WebDriver driver;
-    JsonFileManager JsonObject;
+    JsonFileManager jsonFileManager;
     String currentTime = new SimpleDateFormat("ddMMyyyyHHmmssSSS").format(new Date());
 
 
     @Test
-    public void ChangePasswordSuccessfully(){
+    public void ChangePasswordSuccessfully() {
 
-        HomePageObject = new HomePage(driver);
-        HomePageObject.openRegistrationPage();
-        String email = JsonObject.getTestData("users.Email")+currentTime+"@"+JsonObject.getTestData("users.emailDomain");
-        String OldPassword = JsonObject.getTestData("users.OldPassword");
-        String NewPassword = JsonObject.getTestData("users.NewPassword");
+        //open register page and prepare registration data
+        homePage.openRegistrationPage();
+        String email = jsonFileManager.getTestData("users.Email") + currentTime
+                + "@" + jsonFileManager.getTestData("users.emailDomain");
+        String OldPassword = jsonFileManager.getTestData("users.OldPassword");
+        String NewPassword = jsonFileManager.getTestData("users.NewPassword");
 
-        UserRegisterObject.registerWithRequiredFields(JsonObject.getTestData("users.firstname"),
-                JsonObject.getTestData("users.LastName"),email,OldPassword,OldPassword);
+        //Register with data
+        userRegistrationPage.registerWithRequiredFields(jsonFileManager.getTestData("users.firstname"),
+                jsonFileManager.getTestData("users.LastName"), email, OldPassword, OldPassword);
 
-        HomePageObject.openMyAccount();
-        CustomerPageObject.openChangePassword();
-        CustomerPageObject.ChangePassword(OldPassword,NewPassword,NewPassword);
-        String message = CustomerPageObject.getConfirmationMessage();
-        if(message!=null){
-            Assert.assertEquals(message,JsonObject.getTestData("messages.PasswordChanged"));
-        }
-        else{
-            Assert.fail();
-        }
+        //Login to the registered account
+        homePage.openLoginPage();
+        loginPage.Login(email, OldPassword);
+
+        //Change password to the new password
+        homePage.openMyAccount();
+        customerInfoPage.openChangePassword();
+        customerInfoPage.ChangePassword(OldPassword, NewPassword, NewPassword);
+        String message = customerInfoPage.getConfirmationMessage();
+
+        //check if the password is changed or not
+        Assert.assertEquals(message, jsonFileManager.getTestData("messages.PasswordChanged"));
+
     }
 
     @BeforeMethod
-    public void setup(){
-        JsonObject = new JsonFileManager("src/test/data/MyAccountTestData.json");
-        driver = getDriver("chrome");
-        HomePageObject = new HomePage(driver);
-        UserRegisterObject = new UserRegistrationPage(driver);
-        LoginPageObject = new LoginPage(driver);
-        CustomerPageObject = new CustomerInfoPage(driver);
-        HomePageObject.navigateToHomePage();
+    public void setup() {
+        jsonFileManager = new JsonFileManager("src/test/data/MyAccountTestData.json");
+        driver = getBrowser(jsonFileManager.getTestData("config.BrowserName"),
+                jsonFileManager.getTestData("config.ExecutionType"));
+        homePage = new HomePage(driver);
+        userRegistrationPage = new UserRegistrationPage(driver);
+        loginPage = new LoginPage(driver);
+        customerInfoPage = new CustomerInfoPage(driver);
+        homePage.navigateToHomePage();
     }
 
     @AfterMethod
-    public void closeDown(){
+    public void tearDown() {
         closeAllBrowserTabs(driver);
     }
 }

@@ -8,5 +8,9 @@
   },
   "messages": {
     "RegisterSuccessfully": "Your registration completed"
+  },
+  "config": {
+    "BrowserName": "chrome",
+    "ExecutionType": "local"
   }
 }

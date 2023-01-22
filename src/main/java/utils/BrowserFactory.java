@@ -1,31 +1,62 @@
 package utils;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class BrowserFactory {
 
-    public static WebDriver driver ;
+   public static WebDriver driver;
 
-    public static WebDriver getDriver(String browserType){
+    public static WebDriver getBrowser(String BrowserName, String ExecutionType)  {
+        if(ExecutionType.equalsIgnoreCase("remote")){
+            if(BrowserName.equalsIgnoreCase("chrome")){
 
-        if(browserType.equalsIgnoreCase("chrome")){
-            System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/drivers/chromedriver.exe");
-            driver = new ChromeDriver();
+                ChromeOptions options = new ChromeOptions();
+               // options.addArguments("headless");
+                DesiredCapabilities capabilities = new DesiredCapabilities();
+                capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+                options.merge(capabilities);
+                try {
+                    driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+            }
+            else if (BrowserName.equalsIgnoreCase("firefox")){
+                FirefoxOptions options = new FirefoxOptions();
+                //options.addArguments("headless");
+                DesiredCapabilities capabilities = new DesiredCapabilities();
+                capabilities.setCapability(FirefoxOptions.FIREFOX_OPTIONS, options);
+                options.merge(capabilities);
+                try {
+                    driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+            }
+
         }
-        else if (browserType.equalsIgnoreCase("firefox")){
-            System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"/drivers/geckodriver.exe");
-            driver = new FirefoxDriver();
+        else if (ExecutionType.equalsIgnoreCase("local")){
+            if(BrowserName.equalsIgnoreCase("chrome")){
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+            }
+            else if (BrowserName.equalsIgnoreCase("firefox")){
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+            }
         }
-        else if (browserType.equalsIgnoreCase("Edge")){
-            System.setProperty("webdriver.edge.driver",System.getProperty("user.dir")+"/drivers/msedgedriver.exe");
-            driver = new EdgeDriver();
-        }
+
 
         return driver;
-
     }
 }

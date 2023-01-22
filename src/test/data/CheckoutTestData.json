@@ -23,5 +23,9 @@
     "LoginSuccessfully": "Log out",
     "AddToCartSuccessfully": "The product has been added to your shopping cart",
     "OrderConfirmedSuccessfully": "Your order has been successfully processed!"
+  },
+  "config": {
+    "BrowserName": "chrome",
+    "ExecutionType": "local"
   }
 }

@@ -8,47 +8,48 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.ProductDetailsPage;
 import pages.SearchPage;
+import utils.BrowserFactory;
 import utils.JsonFileManager;
 
 import static utils.BrowserAction.closeAllBrowserTabs;
-import static utils.BrowserFactory.getDriver;
+import static utils.BrowserFactory.getBrowser;
+
 
 public class SearchProductTest {
 
     WebDriver driver;
-    JsonFileManager JsonObject;
-
-    HomePage homePageObject;
-    SearchPage SearchPageObject;
-    ProductDetailsPage ProductObject;
+    JsonFileManager jsonFileManager;
+    HomePage homePage;
+    SearchPage searchPage;
+    ProductDetailsPage productDetailsPage;
 
     @Test
-    public void SearchForProduct(){
-        String Product_name = JsonObject.getTestData("FullProductName");
-        SearchPageObject.searchForProductCompleteName(Product_name);
-        Assert.assertEquals(ProductObject.getProductTitle(),Product_name);
+    public void SearchForProduct() {
+        String Product_name = jsonFileManager.getTestData("FullProductName");
+        searchPage.searchForProductCompleteName(Product_name);
+        Assert.assertEquals(productDetailsPage.getProductTitle(), Product_name);
     }
 
     @Test
-    public void SearchForProductAutoComplete(){
-        String Product_name = JsonObject.getTestData("AutoCompleteProductName");
-        SearchPageObject.searchProductAutoComplete(Product_name,0);
-        Assert.assertTrue(ProductObject.getProductName().contains(Product_name));
+    public void SearchForProductAutoComplete() {
+        String Product_name = jsonFileManager.getTestData("AutoCompleteProductName");
+        searchPage.searchProductAutoComplete(Product_name, 0);
+        Assert.assertTrue(productDetailsPage.getProductName().contains(Product_name));
     }
 
     @BeforeMethod
-    public void startUp(){
-        JsonObject = new JsonFileManager("src/test/data/SearchProductTestData.json");
-        driver = getDriver("chrome");
-        homePageObject = new HomePage(driver);
-        SearchPageObject = new SearchPage(driver);
-        ProductObject = new ProductDetailsPage(driver);
-
-        homePageObject.navigateToHomePage();
+    public void setUp() {
+        jsonFileManager = new JsonFileManager("src/test/data/SearchProductTestData.json");
+        driver = getBrowser(jsonFileManager.getTestData("config.BrowserName"),
+                jsonFileManager.getTestData("config.ExecutionType"));
+        homePage = new HomePage(driver);
+        searchPage = new SearchPage(driver);
+        productDetailsPage = new ProductDetailsPage(driver);
+        homePage.navigateToHomePage();
     }
 
     @AfterMethod
-    public void closeUp(){
+    public void tearDown() {
         closeAllBrowserTabs(driver);
     }
 }

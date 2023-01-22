@@ -9,5 +9,9 @@
   },
   "messages": {
     "PasswordChanged": "Password was changed"
+  },
+  "config": {
+    "BrowserName": "chrome",
+    "ExecutionType": "local"
   }
 }
