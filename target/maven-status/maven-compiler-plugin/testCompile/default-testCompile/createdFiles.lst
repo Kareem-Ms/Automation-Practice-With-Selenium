@@ -1,0 +1,5 @@
+tests\MyAccountTest.class
+tests\CheckoutTest.class
+tests\LoginTest.class
+tests\SearchProductTest.class
+tests\UserRegistrationTest.class

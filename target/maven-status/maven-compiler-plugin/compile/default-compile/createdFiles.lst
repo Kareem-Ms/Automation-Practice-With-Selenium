@@ -1,0 +1,15 @@
+pages\ShoppingCartPage.class
+pages\ProductDetailsPage.class
+utils\ElementActions$SelectType.class
+pages\LoginPage.class
+pages\HomePage.class
+utils\JsonFileManager.class
+utils\ElementActions.class
+pages\UserRegisterResultPage.class
+utils\BrowserFactory.class
+pages\SearchPage.class
+pages\CheckoutPage.class
+pages\CheckoutBillingAddressPage.class
+pages\CustomerInfoPage.class
+utils\BrowserAction.class
+pages\UserRegistrationPage.class

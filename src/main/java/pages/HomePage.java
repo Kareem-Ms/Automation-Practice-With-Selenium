@@ -17,51 +17,36 @@ public class HomePage {
         actionObject = new ElementActions(driver);
     }
 
-    By registerLinkLocator = By.className("ico-register");
-
-    By LoginLinkLocator = By.className("ico-login");
-
     By LogoutLinkLocator = By.className("ico-logout");
-
-    By MyAccountLinkLocator = By.className("ico-account");
-
-    By ShoppingCartLink = By.id("topcartlink");
-
     By ShoppingCartNotificationLink = By.xpath("//p[@class = 'content']//a[text() ='shopping cart' ]");
 
-    public void navigateToHomePage(){
-        navigateToUrl(driver,url);
+    public void navigateToHomePage() {
+        navigateToUrl(driver, url);
     }
 
     //3ayz a3ml method b2a t3ml click 3ala el button da 34an ast5dmha fe el test cases bta3et el register
-    public void openRegistrationPage (){
-        actionObject.click(registerLinkLocator);
+    public void openRegistrationPage() {
+        openPage("ico-register");
     }
 
-    public void openLoginPage (){
-        actionObject.click(LoginLinkLocator);
+    public void openLoginPage() {
+        openPage("ico-login");
     }
 
-    public String CheckLougoutLink(){
+    public void openMyAccount() {
+        openPage("ico-account");
+    }
+
+    public String CheckLougoutLink() {
         return actionObject.getText(LogoutLinkLocator);
     }
 
-    public void logOut(){
-        actionObject.click(LogoutLinkLocator);
-    }
-
-
-
-    public void openMyAccount(){
-        actionObject.click(MyAccountLinkLocator);
-    }
-
-    public void openShoppingCart(){
-        actionObject.click(ShoppingCartLink);
-    }
-
-    public void openNotificationShoppingCart(){
+    public void openNotificationShoppingCart() {
         actionObject.click(ShoppingCartNotificationLink);
+    }
+
+    public void openPage(String ClassName) {
+        actionObject.click(By.className(ClassName));
     }
 
 }

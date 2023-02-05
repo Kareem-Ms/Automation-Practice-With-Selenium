@@ -6,7 +6,7 @@ import utils.ElementActions;
 
 public class UserRegisterResultPage{
 
-    private final WebDriver driver ;
+    WebDriver driver ;
     ElementActions actionObject;
 
     public UserRegisterResultPage(WebDriver driver) {
@@ -14,10 +14,7 @@ public class UserRegisterResultPage{
         actionObject = new ElementActions(driver);
     }
 
-    By RegisterResultMsg = By.className("result");
-
-
     public String checkmsg(){
-        return actionObject.getText(RegisterResultMsg);
+        return actionObject.getText(By.className("result"));
     }
 }

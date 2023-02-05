@@ -8,7 +8,9 @@
     "NewPassword": "tester1234"
   },
   "messages": {
-    "PasswordChanged": "Password was changed"
+    "PasswordChanged": "Password was changed",
+    "RegisterSuccessfully": "Your registration completed",
+    "LoginSuccessfully": "Log out"
   },
   "config": {
     "BrowserName": "chrome",

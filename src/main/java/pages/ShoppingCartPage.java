@@ -14,31 +14,26 @@ public class ShoppingCartPage {
     }
 
     //need to understand how to write a relative xpath so that i could get into the cell of any row in the table without using findbyelemts
-
-    By TotalOrderLocator = By.xpath("//td[@class = 'cart-total-left']//label[text() = 'Total:']//parent::td//following-sibling::td//span//strong");
+    String TotalOrderXpath = "//td[@class = 'cart-total-left']//label[text() = 'Total:']//parent::td//following-sibling::td//span//strong";
+    By TotalOrderLocator = By.xpath(TotalOrderXpath);
     By TermsAndConditionInputLocator = By.id("termsofservice");
     By CheckOutButtonLocator = By.id("checkout");
 
     public String getProductQuantityInCart(String ProductName){
-       String ProductQuantityXpath = "//td//a[text() = '"+ProductName+"']//parent::td[@class = 'product'] //following-sibling::td[@class = 'quantity']";
-       return actionObject.getAccessibleName(By.xpath(ProductQuantityXpath));
+       return actionObject.getAccessibleName(getProductQunatityXpath(ProductName));
     }
 
     public String getProductTotalPrice(String ProductName){
-        String ProductTotalPriceXpath = "//td//a[text() = '"+ProductName+"']//parent::td[@class = 'product']//following-sibling::td[@class = 'subtotal']//span[@class = 'product-subtotal']";
-        //change the format of total price into an ordinary integer
-        String TotalPriceWithoutSign = actionObject.getText(By.xpath(ProductTotalPriceXpath)).substring(1);
+        String TotalPriceWithoutSign = actionObject.getText(getTotalPriceXpath(ProductName)).substring(1);
         TotalPriceWithoutSign = TotalPriceWithoutSign.replaceAll(",", "");
         int totalPrice = (int)Math.round(Double.parseDouble(TotalPriceWithoutSign));
         return String.valueOf(totalPrice);
     }
 
     public String getProductCalculatedTotalPrice(String ProductName){
-        String ProductQuantityXpath = "//td//a[text() = '"+ProductName+"']//parent::td[@class = 'product'] //following-sibling::td[@class = 'quantity']";
-        String ProductUnitPriceXpath = "//td//a[text() = '"+ProductName+"']//parent::td[@class = 'product']//following-sibling::td[@class = 'unit-price']//span[@class = 'product-unit-price']";
-        int quantity = Integer.parseInt(actionObject.getAccessibleName(By.xpath(ProductQuantityXpath)));
+        int quantity = Integer.parseInt(actionObject.getAccessibleName(getProductQunatityXpath(ProductName)));
         //remove $ sign from unit price and form it into integer
-        String unitPriceWithoutSign = actionObject.getText(By.xpath(ProductUnitPriceXpath)).substring(1);
+        String unitPriceWithoutSign = actionObject.getText(getProductUnitPriceXpath(ProductName)).substring(1);
         //here we replace all , with a space to convert it into integer
         unitPriceWithoutSign = unitPriceWithoutSign.replaceAll(",", "");
         int unitPrice = (int)Math.round(Double.parseDouble(unitPriceWithoutSign));
@@ -56,5 +51,20 @@ public class ShoppingCartPage {
     public void NavigateToCheckoutPage(){
         actionObject.click(TermsAndConditionInputLocator);
         actionObject.click(CheckOutButtonLocator);
+    }
+
+    private By getTotalPriceXpath(String ProductName){
+        By Locator = By.xpath("//td//a[text() = '"+ProductName+"']//parent::td[@class = 'product']//following-sibling::td[@class = 'subtotal']//span[@class = 'product-subtotal']");
+        return Locator;
+    }
+
+    private By getProductQunatityXpath(String ProductName){
+        By Locator = By.xpath("//td//a[text() = '"+ProductName+"']//parent::td[@class = 'product'] //following-sibling::td[@class = 'quantity']");
+        return Locator;
+    }
+
+    private By getProductUnitPriceXpath(String ProductName){
+        By Locator = By.xpath("//td//a[text() = '"+ProductName+"']//parent::td[@class = 'product']//following-sibling::td[@class = 'unit-price']//span[@class = 'product-unit-price']");
+        return Locator;
     }
 }

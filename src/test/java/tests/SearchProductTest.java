@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.ProductDetailsPage;
 import pages.SearchPage;
-import utils.BrowserFactory;
 import utils.JsonFileManager;
 
 import static utils.BrowserAction.closeAllBrowserTabs;

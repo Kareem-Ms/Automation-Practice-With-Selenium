@@ -7,11 +7,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.UserRegisterResultPage;
 import pages.UserRegistrationPage;
-import utils.BrowserFactory;
 import utils.JsonFileManager;
 
-import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -26,23 +25,32 @@ public class LoginTest {
     HomePage homePage;
     UserRegistrationPage userRegistrationPage;
     LoginPage loginPage;
+    UserRegisterResultPage userRegisterResultPage;
     WebDriver driver;
     String currentTime = new SimpleDateFormat("ddMMyyyyHHmmssSSS").format(new Date());
+    String email;
+    String password;
 
-    //need to be maintained it should start it from register
     @Test
-    public void CheckLoginSuccessfully() {
+    public void RegisterNewUser() {
+
         homePage.openRegistrationPage();
-        String email = jsonFileManager.getTestData("users.RegisteredEmail")
+        email = jsonFileManager.getTestData("users.RegisteredEmail")
                 + currentTime + "@" + jsonFileManager.getTestData("users.emailDomain");
-        String password = jsonFileManager.getTestData("users.Password");
+        password = jsonFileManager.getTestData("users.Password");
 
 
         //register using data
         userRegistrationPage.registerWithRequiredFields(jsonFileManager.getTestData("users.FirstName"),
                 jsonFileManager.getTestData("users.LastName"), email, password, password);
+        //we will check that the user is registered
+        String msg = userRegisterResultPage.checkmsg();
+        Assert.assertEquals(msg, jsonFileManager.getTestData("messages.RegisterSuccessfully"));
+    }
 
-        //Login
+    //need to be maintained it should start it from register
+    @Test(dependsOnMethods = "RegisterNewUser")
+    public void CheckLoginSuccessfully() {
         homePage.openLoginPage();
         loginPage.Login(email, password);
         String Result = homePage.CheckLougoutLink();
@@ -61,7 +69,7 @@ public class LoginTest {
     }
 
     @BeforeMethod
-    public void setUp() throws MalformedURLException {
+    public void setUp(){
         jsonFileManager = new JsonFileManager("src/test/data/LoginTestData.json");
         driver = getBrowser(jsonFileManager.getTestData("config.BrowserName"),
                 jsonFileManager.getTestData("config.ExecutionType"));
@@ -69,6 +77,7 @@ public class LoginTest {
         homePage = new HomePage(driver);
         userRegistrationPage = new UserRegistrationPage(driver);
         loginPage = new LoginPage(driver);
+        userRegisterResultPage = new UserRegisterResultPage(driver);
         homePage.navigateToHomePage();
     }
 

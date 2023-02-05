@@ -2,7 +2,7 @@ version: "3.8"
 services:
 
 #here we specify all the containrs by mentioning the images
-#then we menssion the port of the image
+#then we mention the port of the image
 #the first image we have is selenium hub and this will represent the hub node
   selenium-hub:
     image: selenium/hub
@@ -16,7 +16,7 @@ services:
       GRID_BROWSER_TIMEOUT: 300
       GRID_TIMEOUT: 300
 #here we will specificy the first node by specifiing the image
-#then we mension on the depends on "selenium-hub" we do this to declare that this container will not be up and running
+#then we mention on the depends on "selenium-hub" we do this to declare that this container will not be up and running
 #before the "selenium-hub" container be up and running
   chrome:
     image: selenium/node-chrome
@@ -27,10 +27,11 @@ services:
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      -  #below we say that we will only be running at maximum 2 browsers on this container
       - SE_NODE_MAX_SESSIONS=2
-      #below we say that we want to connect this containr to selenium-hub containr with port 4444
 
-      #below we say that we will only be running at maximum 2 browsers on this containr
+
+
 
     # volumes:
     #   - /dev/shm:/dev/shm

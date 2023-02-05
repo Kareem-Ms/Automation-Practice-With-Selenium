@@ -2,14 +2,8 @@ package tests;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-import pages.CustomerInfoPage;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.UserRegistrationPage;
-import utils.BrowserFactory;
+import org.testng.annotations.*;
+import pages.*;
 import utils.JsonFileManager;
 
 import java.text.SimpleDateFormat;
@@ -25,41 +19,52 @@ public class MyAccountTest {
     UserRegistrationPage userRegistrationPage;
     LoginPage loginPage;
     CustomerInfoPage customerInfoPage;
+    UserRegisterResultPage userRegisterResultPage;
     WebDriver driver;
     JsonFileManager jsonFileManager;
     String currentTime = new SimpleDateFormat("ddMMyyyyHHmmssSSS").format(new Date());
+    String email;
+    String password;
 
 
     @Test
-    public void ChangePasswordSuccessfully() {
+    public void RegisterNewUser() {
 
-        //open register page and prepare registration data
         homePage.openRegistrationPage();
-        String email = jsonFileManager.getTestData("users.Email") + currentTime
-                + "@" + jsonFileManager.getTestData("users.emailDomain");
-        String OldPassword = jsonFileManager.getTestData("users.OldPassword");
-        String NewPassword = jsonFileManager.getTestData("users.NewPassword");
+         email = jsonFileManager.getTestData("users.Email") + currentTime + "@"
+                + jsonFileManager.getTestData("users.emailDomain");
+        password = jsonFileManager.getTestData("users.OldPassword");
 
-        //Register with data
+        //b3d keda ha3rf el Register object
         userRegistrationPage.registerWithRequiredFields(jsonFileManager.getTestData("users.firstname"),
-                jsonFileManager.getTestData("users.LastName"), email, OldPassword, OldPassword);
+                jsonFileManager.getTestData("users.LastName"), email, password, password);
+        //we will check that the user is registered
+        String msg = userRegisterResultPage.checkmsg();
+        Assert.assertEquals(msg, jsonFileManager.getTestData("messages.RegisterSuccessfully"));
+    }
 
-        //Login to the registered account
+    @Test(dependsOnMethods = "RegisterNewUser")
+    public void Login(){
         homePage.openLoginPage();
-        loginPage.Login(email, OldPassword);
+        loginPage.Login(email, password);
+        String Result = homePage.CheckLougoutLink();
+        Assert.assertEquals(Result, jsonFileManager.getTestData("messages.LoginSuccessfully"));
+    }
 
+    @Test(dependsOnMethods = "Login")
+    public void ChangePassword() {
         //Change password to the new password
         homePage.openMyAccount();
         customerInfoPage.openChangePassword();
-        customerInfoPage.ChangePassword(OldPassword, NewPassword, NewPassword);
+        String NewPassword = jsonFileManager.getTestData("users.NewPassword");
+        customerInfoPage.ChangePassword(password, NewPassword, NewPassword);
         String message = customerInfoPage.getConfirmationMessage();
 
         //check if the password is changed or not
         Assert.assertEquals(message, jsonFileManager.getTestData("messages.PasswordChanged"));
-
     }
 
-    @BeforeMethod
+    @BeforeTest
     public void setup() {
         jsonFileManager = new JsonFileManager("src/test/data/MyAccountTestData.json");
         driver = getBrowser(jsonFileManager.getTestData("config.BrowserName"),
@@ -68,10 +73,11 @@ public class MyAccountTest {
         userRegistrationPage = new UserRegistrationPage(driver);
         loginPage = new LoginPage(driver);
         customerInfoPage = new CustomerInfoPage(driver);
+        userRegisterResultPage = new UserRegisterResultPage(driver);
         homePage.navigateToHomePage();
     }
 
-    @AfterMethod
+    @AfterTest
     public void tearDown() {
         closeAllBrowserTabs(driver);
     }

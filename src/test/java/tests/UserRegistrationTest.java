@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.UserRegisterResultPage;
 import pages.UserRegistrationPage;
-import utils.BrowserFactory;
 import utils.JsonFileManager;
 
 import java.text.SimpleDateFormat;
