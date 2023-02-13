@@ -34,13 +34,10 @@ public class LoginTest {
     @Test
     public void RegisterNewUser() {
 
-        homePage.openRegistrationPage();
         email = jsonFileManager.getTestData("users.RegisteredEmail")
                 + currentTime + "@" + jsonFileManager.getTestData("users.emailDomain");
         password = jsonFileManager.getTestData("users.Password");
 
-
-        //register using data
         userRegistrationPage.registerWithRequiredFields(jsonFileManager.getTestData("users.FirstName"),
                 jsonFileManager.getTestData("users.LastName"), email, password, password);
         //we will check that the user is registered
@@ -48,7 +45,6 @@ public class LoginTest {
         Assert.assertEquals(msg, jsonFileManager.getTestData("messages.RegisterSuccessfully"));
     }
 
-    //need to be maintained it should start it from register
     @Test(dependsOnMethods = "RegisterNewUser")
     public void CheckLoginSuccessfully() {
         homePage.openLoginPage();
@@ -78,7 +74,7 @@ public class LoginTest {
         userRegistrationPage = new UserRegistrationPage(driver);
         loginPage = new LoginPage(driver);
         userRegisterResultPage = new UserRegisterResultPage(driver);
-        homePage.navigateToHomePage();
+        userRegistrationPage.navigateToRegisterPage();
     }
 
     @AfterMethod

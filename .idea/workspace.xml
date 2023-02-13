@@ -5,42 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d603288-2a20-43e3-a748-64b7bd4b8fab" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SeleniumGrid/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumGrid/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/ShoppingCartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/ShoppingCartPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pages/UserRegisterResultPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/UserRegisterResultPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/UserRegistrationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/UserRegistrationPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/data/LoginTestData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/data/LoginTestData.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/data/MyAccountTestData.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/data/MyAccountTestData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/CheckoutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CheckoutTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LoginTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/MyAccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/MyAccountTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/tests/SearchProductTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/SearchProductTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/UserRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/UserRegistrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pages/CheckoutBillingAddressPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/CheckoutBillingAddressPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pages/CheckoutPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/CheckoutPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pages/CustomerInfoPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/CustomerInfoPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pages/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/HomePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pages/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/LoginPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pages/ProductDetailsPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/ProductDetailsPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pages/SearchPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/SearchPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pages/ShoppingCartPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/ShoppingCartPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pages/UserRegisterResultPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/UserRegisterResultPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pages/UserRegistrationPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/UserRegistrationPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/BrowserAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/BrowserAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/BrowserFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/BrowserFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/ElementActions$SelectType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/ElementActions$SelectType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/ElementActions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/ElementActions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/JsonFileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/JsonFileManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/tests/CheckoutTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/CheckoutTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/tests/LoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/LoginTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/tests/MyAccountTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/MyAccountTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/tests/SearchProductTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/SearchProductTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/tests/UserRegistrationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/UserRegistrationTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,17 +51,7 @@
       <recent name="C:\Users\kemo\IdeaProjects\Taf\drivers" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.LoginTest.RegisterNewUser">
-    <configuration name="C:/Users/kemo/IdeaProjects/Taf/testng.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="Taf" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/testng.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="TestNG.CheckoutTest">
     <configuration name="CheckoutTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Taf" />
       <extension name="coverage">
@@ -106,7 +69,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.RegisterNewUser" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Taf" />
       <extension name="coverage">
         <pattern>
@@ -116,15 +79,48 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.LoginTest" />
-      <option name="METHOD_NAME" value="RegisterNewUser" />
-      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRegistrationTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="MyAccountTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Taf" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.MyAccountTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchProductTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Taf" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.SearchProductTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserRegistrationTest.UserCanRegisterSucessfully" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Taf" />
       <extension name="coverage">
         <pattern>
@@ -134,24 +130,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.UserRegistrationTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="trial.CheckLoginSuccessfully" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="Taf" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.trial" />
-      <option name="METHOD_NAME" value="CheckLoginSuccessfully" />
+      <option name="METHOD_NAME" value="UserCanRegisterSucessfully" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -161,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.LoginTest.RegisterNewUser" />
-        <item itemvalue="TestNG.trial.CheckLoginSuccessfully" />
         <item itemvalue="TestNG.CheckoutTest" />
-        <item itemvalue="TestNG.C:/Users/kemo/IdeaProjects/Taf/testng.xml" />
-        <item itemvalue="TestNG.UserRegistrationTest" />
+        <item itemvalue="TestNG.LoginTest" />
+        <item itemvalue="TestNG.MyAccountTest" />
+        <item itemvalue="TestNG.SearchProductTest" />
+        <item itemvalue="TestNG.UserRegistrationTest.UserCanRegisterSucessfully" />
       </list>
     </recent_temporary>
   </component>
@@ -196,7 +175,8 @@
       <workItem from="1675198430352" duration="2174000" />
       <workItem from="1675367202751" duration="5066000" />
       <workItem from="1675372711381" duration="570000" />
-      <workItem from="1675609924181" duration="1349000" />
+      <workItem from="1675609924181" duration="3009000" />
+      <workItem from="1676317029096" duration="730000" />
     </task>
     <servers />
   </component>

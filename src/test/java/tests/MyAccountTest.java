@@ -30,7 +30,6 @@ public class MyAccountTest {
     @Test
     public void RegisterNewUser() {
 
-        homePage.openRegistrationPage();
          email = jsonFileManager.getTestData("users.Email") + currentTime + "@"
                 + jsonFileManager.getTestData("users.emailDomain");
         password = jsonFileManager.getTestData("users.OldPassword");
@@ -74,7 +73,7 @@ public class MyAccountTest {
         loginPage = new LoginPage(driver);
         customerInfoPage = new CustomerInfoPage(driver);
         userRegisterResultPage = new UserRegisterResultPage(driver);
-        homePage.navigateToHomePage();
+        userRegistrationPage.navigateToRegisterPage();
     }
 
     @AfterTest

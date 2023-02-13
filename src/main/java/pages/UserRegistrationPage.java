@@ -4,16 +4,23 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.ElementActions;
 
+import static utils.BrowserAction.navigateToUrl;
+
 //hna ana h3rf el webelemnts w el methods w bs h3ml call feh el tests lel methods deh
 public class UserRegistrationPage {
 
     WebDriver driver;
     ElementActions actionObject;
+    String url = "https://demo.nopcommerce.com/register?returnUrl=%2F";
 
     //da constructor lazm yt3ml
     public UserRegistrationPage(WebDriver driver) {
         this.driver = driver;
         actionObject = new ElementActions(driver);
+    }
+
+    public void navigateToRegisterPage(){
+        navigateToUrl(driver, url);
     }
 
 

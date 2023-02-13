@@ -34,7 +34,6 @@ public class CheckoutTest {
 
     @Test
     public void RegisterNewUser() {
-        homePage.openRegistrationPage();
         email = jsonFileManager.getTestData("users.RegisteredEmail") + currentTime
                 + "@" + jsonFileManager.getTestData("users.emailDomain");
         password = jsonFileManager.getTestData("users.Password");
@@ -104,7 +103,6 @@ public class CheckoutTest {
         driver = getBrowser(jsonFileManager.getTestData("config.BrowserName"),
                 jsonFileManager.getTestData("config.ExecutionType"));
         homePage = new HomePage(driver);
-        homePage.navigateToHomePage();
         userRegistrationPage = new UserRegistrationPage(driver);
         loginPage = new LoginPage(driver);
         userRegisterResultPage = new UserRegisterResultPage(driver);
@@ -112,7 +110,7 @@ public class CheckoutTest {
         productDetailsPage = new ProductDetailsPage(driver);
         shoppingCartPage = new ShoppingCartPage(driver);
         checkoutPage = new CheckoutPage(driver);
-
+        userRegistrationPage.navigateToRegisterPage();
     }
 
     @AfterClass

@@ -33,8 +33,6 @@ public class UserRegistrationTest {
         //fa awl page object hst5dmha hya el home page
         //hna 3araf el homeObject w edaha el driver w el driver da el mwgod fe el TestBase class
 
-        //keda ana dost 3ala el link
-        homePage.openRegistrationPage();
         String email = jsonFileManager.getTestData("users.Email") + currentTime + "@"
                 + jsonFileManager.getTestData("users.emailDomain");
         String password = jsonFileManager.getTestData("users.Password");
@@ -55,8 +53,7 @@ public class UserRegistrationTest {
         homePage = new HomePage(driver);
         userRegistrationPage = new UserRegistrationPage(driver);
         userRegisterResultPage = new UserRegisterResultPage(driver);
-        homePage.navigateToHomePage();
-
+        userRegistrationPage.navigateToRegisterPage();
     }
 
     @AfterMethod
