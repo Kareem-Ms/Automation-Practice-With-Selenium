@@ -6,13 +6,63 @@
   <component name="ChangeListManager">
     <list default="true" id="6d603288-2a20-43e3-a748-64b7bd4b8fab" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SeleniumGrid/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/SeleniumGrid/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/CheckoutBillingAddressPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/CheckoutBillingAddressPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/CheckoutPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/CheckoutPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/CustomerInfoPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/CustomerInfoPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/HomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/ProductDetailsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/ProductDetailsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/SearchPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/SearchPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/ShoppingCartPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/ShoppingCartPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pages/UserRegisterResultPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/UserRegisterResultPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pages/UserRegistrationPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pages/UserRegistrationPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/CheckoutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CheckoutTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/LoginTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/MyAccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/MyAccountTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/SearchProductTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/SearchProductTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/tests/UserRegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/UserRegistrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Taf-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pages/CheckoutBillingAddressPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/CheckoutBillingAddressPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pages/CheckoutPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/CheckoutPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pages/CustomerInfoPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/CustomerInfoPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pages/HomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/HomePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pages/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/LoginPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pages/ProductDetailsPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/ProductDetailsPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pages/SearchPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/SearchPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pages/ShoppingCartPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/ShoppingCartPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pages/UserRegisterResultPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/UserRegisterResultPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pages/UserRegistrationPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pages/UserRegistrationPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/Command line suite/Command line test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/Command line suite/Command line test.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-TestSuite.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TestSuite.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/emailable-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/emailable-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/junitreports/TEST-tests.CheckoutTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/junitreports/TEST-tests.LoginTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/junitreports/TEST-tests.MyAccountTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/junitreports/TEST-tests.SearchProductTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/junitreports/TEST-tests.SearchProductTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/junitreports/TEST-tests.UserRegistrationTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/Command line test.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/classes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/groups.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/methods-alphabetical.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/methods-not-run.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/methods.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/reporter-output.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/testng.xml.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/toc.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/old/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/testng-results.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/testng-results.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tests/CheckoutTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/CheckoutTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/tests/LoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/LoginTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/tests/MyAccountTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/MyAccountTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/tests/SearchProductTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/SearchProductTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/tests/UserRegistrationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/tests/UserRegistrationTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +101,12 @@
       <recent name="C:\Users\kemo\IdeaProjects\Taf\drivers" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.CheckoutTest">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn test" />
+    </option>
+  </component>
+  <component name="RunManager" selected="TestNG.SearchProductTest">
     <configuration name="CheckoutTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="Taf" />
       <extension name="coverage">
@@ -80,6 +135,24 @@
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.LoginTest" />
       <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTest.RegisterNewUser" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Taf" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.LoginTest" />
+      <option name="METHOD_NAME" value="RegisterNewUser" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -120,31 +193,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserRegistrationTest.UserCanRegisterSucessfully" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="Taf" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.UserRegistrationTest" />
-      <option name="METHOD_NAME" value="UserCanRegisterSucessfully" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.SearchProductTest" />
         <item itemvalue="TestNG.CheckoutTest" />
+        <item itemvalue="TestNG.LoginTest.RegisterNewUser" />
         <item itemvalue="TestNG.LoginTest" />
         <item itemvalue="TestNG.MyAccountTest" />
-        <item itemvalue="TestNG.SearchProductTest" />
-        <item itemvalue="TestNG.UserRegistrationTest.UserCanRegisterSucessfully" />
       </list>
     </recent_temporary>
   </component>
@@ -176,7 +231,10 @@
       <workItem from="1675367202751" duration="5066000" />
       <workItem from="1675372711381" duration="570000" />
       <workItem from="1675609924181" duration="3009000" />
-      <workItem from="1676317029096" duration="730000" />
+      <workItem from="1676317029096" duration="1646000" />
+      <workItem from="1676400017384" duration="882000" />
+      <workItem from="1676403285303" duration="1922000" />
+      <workItem from="1676626667503" duration="14050000" />
     </task>
     <servers />
   </component>

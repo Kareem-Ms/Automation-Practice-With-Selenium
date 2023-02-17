@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -14,6 +15,8 @@ import static utils.BrowserAction.closeAllBrowserTabs;
 import static utils.BrowserFactory.getBrowser;
 
 
+@Epic("Regression tests")
+@Feature("SearchProduct tests")
 public class SearchProductTest {
 
     WebDriver driver;
@@ -22,14 +25,18 @@ public class SearchProductTest {
     SearchPage searchPage;
     ProductDetailsPage productDetailsPage;
 
-    @Test
+    @Test(description = "SearchProduct Tests - Search for product with complete name")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Search for product using it's full name successfully")
     public void SearchForProduct() {
         String Product_name = jsonFileManager.getTestData("FullProductName");
         searchPage.searchForProductCompleteName(Product_name);
         Assert.assertEquals(productDetailsPage.getProductTitle(), Product_name);
     }
 
-    @Test
+    @Test(description = "SearchProduct Tests - Search for product with part of it's name")
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Search for product using part of it's name successfully")
     public void SearchForProductAutoComplete() {
         String Product_name = jsonFileManager.getTestData("AutoCompleteProductName");
         searchPage.searchProductAutoComplete(Product_name, 0);

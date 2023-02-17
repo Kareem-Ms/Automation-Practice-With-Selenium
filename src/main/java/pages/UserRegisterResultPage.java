@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.ElementActions;
@@ -14,6 +15,7 @@ public class UserRegisterResultPage{
         actionObject = new ElementActions(driver);
     }
 
+    @Step("Get registration result message")
     public String checkmsg(){
         return actionObject.getText(By.className("result"));
     }

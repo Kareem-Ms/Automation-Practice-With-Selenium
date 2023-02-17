@@ -1,38 +1,37 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pages.*;
 import utils.JsonFileManager;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import static utils.BrowserAction.closeAllBrowserTabs;
 import static utils.BrowserFactory.getBrowser;
 
-
+@Epic("Regression tests")
+@Feature("Checkout Tests")
 public class CheckoutTest {
 
     WebDriver driver;
-    JsonFileManager jsonFileManager;
-    HomePage homePage;
-    UserRegistrationPage userRegistrationPage;
     LoginPage loginPage;
-    UserRegisterResultPage userRegisterResultPage;
+    HomePage homePage;
     SearchPage searchPage;
+    CheckoutPage checkoutPage;
+    JsonFileManager jsonFileManager;
+    UserRegistrationPage userRegistrationPage;
+    UserRegisterResultPage userRegisterResultPage;
     ProductDetailsPage productDetailsPage;
     ShoppingCartPage shoppingCartPage;
-    CheckoutPage checkoutPage;
     String currentTime = new SimpleDateFormat("ddMMyyyyHHmmssSSS").format(new Date());
     String email;
     String password;
 
-    @Test
+    @Test(description = "Checkout Test - Valid registration")
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("Register new user with a valid email and valid password")
     public void RegisterNewUser() {
         email = jsonFileManager.getTestData("users.RegisteredEmail") + currentTime
                 + "@" + jsonFileManager.getTestData("users.emailDomain");
@@ -45,7 +44,9 @@ public class CheckoutTest {
         Assert.assertEquals(msg, jsonFileManager.getTestData("messages.RegisterSuccessfully"));
     }
 
-    @Test(dependsOnMethods = "RegisterNewUser")
+    @Test(dependsOnMethods = "RegisterNewUser" , description = "Checkout Test - Valid login")
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("Login with valid email and password")
     public void LoginSuccessfully() {
         homePage.openLoginPage();
         loginPage.Login(email, password);
@@ -53,7 +54,9 @@ public class CheckoutTest {
         Assert.assertEquals(LogoutWord, jsonFileManager.getTestData("messages.LoginSuccessfully"));
     }
 
-    @Test(dependsOnMethods = "LoginSuccessfully")
+    @Test(dependsOnMethods = "LoginSuccessfully", description = "Checkout Test - Search For Product with complete name")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Search for product using it's complete name successfully")
     public void SearchForProductCompleteName() {
         String Product_name = jsonFileManager.getTestData("Product.CompleteProductName");
         searchPage.searchForProductCompleteName(Product_name);
@@ -61,7 +64,9 @@ public class CheckoutTest {
         Assert.assertEquals(productDetailsPage.getProductName(), Product_name);
     }
 
-    @Test(dependsOnMethods = "SearchForProductCompleteName")
+    @Test(dependsOnMethods = "SearchForProductCompleteName",description = "Checkout Test - Add product to cart")
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("Add product to cart successfully")
     public void AddProductToCart() {
         //Add product to cart
         String quantity = jsonFileManager.getTestData("Product.quantity");
@@ -81,7 +86,9 @@ public class CheckoutTest {
         Assert.assertEquals(shoppingCartPage.getOrderTotalPrice(), ProductTotalPrice);
     }
 
-    @Test(dependsOnMethods = "AddProductToCart")
+    @Test(dependsOnMethods = "AddProductToCart", description = "Checkout Test - Complete details of checkout")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Complete checkout details successfully")
     public void Checkout() {
         shoppingCartPage.NavigateToCheckoutPage();
         checkoutPage.FillCheckoutInformation(jsonFileManager.getTestData("BillingAddress.CountryName"),

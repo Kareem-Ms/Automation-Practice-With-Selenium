@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Epic;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -16,7 +17,7 @@ import java.util.Date;
 import static utils.BrowserAction.closeAllBrowserTabs;
 import static utils.BrowserFactory.getBrowser;
 
-
+@Epic("Regression tests")
 public class UserRegistrationTest {
 
     WebDriver driver;

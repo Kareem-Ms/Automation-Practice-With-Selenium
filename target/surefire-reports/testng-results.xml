@@ -1,141 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="14" passed="14" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-02-05T17:41:30 EET" name="Command line suite" finished-at="2023-02-05T17:46:19 EET" duration-ms="288568">
+  <suite started-at="2023-02-17T20:47:03 EET" name="Surefire suite" finished-at="2023-02-17T20:47:35 EET" duration-ms="32161">
     <groups>
     </groups>
-    <test started-at="2023-02-05T17:41:30 EET" name="Command line test" finished-at="2023-02-05T17:46:19 EET" duration-ms="288568">
-      <class name="tests.LoginTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.LoginTest@5762806e]" started-at="2023-02-05T17:43:46 EET" name="setUp" finished-at="2023-02-05T17:44:13 EET" duration-ms="26403" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="CheckLoginFaild()[pri:0, instance:tests.LoginTest@5762806e]" started-at="2023-02-05T17:44:13 EET" name="CheckLoginFaild" finished-at="2023-02-05T17:44:19 EET" duration-ms="6459" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CheckLoginFaild -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.LoginTest@5762806e]" started-at="2023-02-05T17:44:19 EET" name="tearDown" finished-at="2023-02-05T17:44:24 EET" duration-ms="4911" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.LoginTest@5762806e]" started-at="2023-02-05T17:44:24 EET" name="setUp" finished-at="2023-02-05T17:44:34 EET" duration-ms="10399" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="RegisterNewUser()[pri:0, instance:tests.LoginTest@5762806e]" started-at="2023-02-05T17:44:34 EET" name="RegisterNewUser" finished-at="2023-02-05T17:44:43 EET" duration-ms="9141" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- RegisterNewUser -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.LoginTest@5762806e]" started-at="2023-02-05T17:44:43 EET" name="tearDown" finished-at="2023-02-05T17:44:46 EET" duration-ms="2668" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.LoginTest@5762806e]" started-at="2023-02-05T17:44:46 EET" name="setUp" finished-at="2023-02-05T17:44:59 EET" duration-ms="12784" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="CheckLoginSuccessfully()[pri:0, instance:tests.LoginTest@5762806e]" started-at="2023-02-05T17:44:59 EET" name="CheckLoginSuccessfully" finished-at="2023-02-05T17:45:06 EET" depends-on-methods="tests.LoginTest.RegisterNewUser" duration-ms="6837" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CheckLoginSuccessfully -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.LoginTest@5762806e]" started-at="2023-02-05T17:45:06 EET" name="tearDown" finished-at="2023-02-05T17:45:06 EET" duration-ms="383" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- tests.LoginTest -->
-      <class name="tests.UserRegistrationTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.UserRegistrationTest@5ef60048]" started-at="2023-02-05T17:46:00 EET" name="setUp" finished-at="2023-02-05T17:46:09 EET" duration-ms="9307" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="UserCanRegisterSucessfully()[pri:0, instance:tests.UserRegistrationTest@5ef60048]" started-at="2023-02-05T17:46:09 EET" name="UserCanRegisterSucessfully" finished-at="2023-02-05T17:46:14 EET" duration-ms="4283" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- UserCanRegisterSucessfully -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.UserRegistrationTest@5ef60048]" started-at="2023-02-05T17:46:14 EET" name="tearDown" finished-at="2023-02-05T17:46:15 EET" duration-ms="1788" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- tests.UserRegistrationTest -->
-      <class name="tests.MyAccountTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.MyAccountTest@17c386de]" started-at="2023-02-05T17:41:30 EET" name="setup" finished-at="2023-02-05T17:42:09 EET" duration-ms="39156" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="RegisterNewUser()[pri:0, instance:tests.MyAccountTest@17c386de]" started-at="2023-02-05T17:45:06 EET" name="RegisterNewUser" finished-at="2023-02-05T17:45:11 EET" duration-ms="4348" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- RegisterNewUser -->
-        <test-method signature="Login()[pri:0, instance:tests.MyAccountTest@17c386de]" started-at="2023-02-05T17:45:11 EET" name="Login" finished-at="2023-02-05T17:45:13 EET" depends-on-methods="tests.MyAccountTest.RegisterNewUser" duration-ms="2454" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method signature="ChangePassword()[pri:0, instance:tests.MyAccountTest@17c386de]" started-at="2023-02-05T17:45:13 EET" name="ChangePassword" finished-at="2023-02-05T17:45:16 EET" depends-on-methods="tests.MyAccountTest.Login" duration-ms="3208" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ChangePassword -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.MyAccountTest@17c386de]" started-at="2023-02-05T17:46:15 EET" name="tearDown" finished-at="2023-02-05T17:46:19 EET" duration-ms="3182" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- tests.MyAccountTest -->
+    <test started-at="2023-02-17T20:47:03 EET" name="Surefire test" finished-at="2023-02-17T20:47:35 EET" duration-ms="32161">
       <class name="tests.SearchProductTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.SearchProductTest@5af97850]" started-at="2023-02-05T17:45:16 EET" name="setUp" finished-at="2023-02-05T17:45:34 EET" duration-ms="17869" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.SearchProductTest@7808fb9]" started-at="2023-02-17T20:47:03 EET" name="setUp" finished-at="2023-02-17T20:47:19 EET" duration-ms="16130" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="SearchForProduct()[pri:0, instance:tests.SearchProductTest@5af97850]" started-at="2023-02-05T17:45:34 EET" name="SearchForProduct" finished-at="2023-02-05T17:45:40 EET" duration-ms="5725" status="PASS">
+        <test-method signature="SearchForProduct()[pri:0, instance:tests.SearchProductTest@7808fb9]" started-at="2023-02-17T20:47:19 EET" name="SearchForProduct" description="SearchProduct Tests - Search for product with complete name" finished-at="2023-02-17T20:47:21 EET" duration-ms="1831" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SearchForProduct -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.SearchProductTest@5af97850]" started-at="2023-02-05T17:45:40 EET" name="tearDown" finished-at="2023-02-05T17:45:47 EET" duration-ms="6999" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.SearchProductTest@7808fb9]" started-at="2023-02-17T20:47:21 EET" name="tearDown" finished-at="2023-02-17T20:47:21 EET" duration-ms="450" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.SearchProductTest@5af97850]" started-at="2023-02-05T17:45:47 EET" name="setUp" finished-at="2023-02-05T17:45:55 EET" duration-ms="8243" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.SearchProductTest@7808fb9]" started-at="2023-02-17T20:47:21 EET" name="setUp" finished-at="2023-02-17T20:47:31 EET" duration-ms="9725" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="SearchForProductAutoComplete()[pri:0, instance:tests.SearchProductTest@5af97850]" started-at="2023-02-05T17:45:55 EET" name="SearchForProductAutoComplete" finished-at="2023-02-05T17:45:59 EET" duration-ms="4265" status="PASS">
+        <test-method signature="SearchForProductAutoComplete()[pri:0, instance:tests.SearchProductTest@7808fb9]" started-at="2023-02-17T20:47:31 EET" name="SearchForProductAutoComplete" description="SearchProduct Tests - Search for product with part of it&#039;s name" finished-at="2023-02-17T20:47:35 EET" duration-ms="3641" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SearchForProductAutoComplete -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.SearchProductTest@5af97850]" started-at="2023-02-05T17:45:59 EET" name="tearDown" finished-at="2023-02-05T17:46:00 EET" duration-ms="692" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.SearchProductTest@7808fb9]" started-at="2023-02-17T20:47:35 EET" name="tearDown" finished-at="2023-02-17T20:47:35 EET" duration-ms="222" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- tests.SearchProductTest -->
-      <class name="tests.CheckoutTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.CheckoutTest@55ca8de8]" started-at="2023-02-05T17:42:09 EET" name="setUp" finished-at="2023-02-05T17:42:30 EET" duration-ms="20497" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="RegisterNewUser()[pri:0, instance:tests.CheckoutTest@55ca8de8]" started-at="2023-02-05T17:42:30 EET" name="RegisterNewUser" finished-at="2023-02-05T17:43:05 EET" duration-ms="35007" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- RegisterNewUser -->
-        <test-method signature="LoginSuccessfully()[pri:0, instance:tests.CheckoutTest@55ca8de8]" started-at="2023-02-05T17:43:05 EET" name="LoginSuccessfully" finished-at="2023-02-05T17:43:07 EET" depends-on-methods="tests.CheckoutTest.RegisterNewUser" duration-ms="2753" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- LoginSuccessfully -->
-        <test-method signature="SearchForProductCompleteName()[pri:0, instance:tests.CheckoutTest@55ca8de8]" started-at="2023-02-05T17:43:07 EET" name="SearchForProductCompleteName" finished-at="2023-02-05T17:43:16 EET" depends-on-methods="tests.CheckoutTest.LoginSuccessfully" duration-ms="8985" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SearchForProductCompleteName -->
-        <test-method signature="AddProductToCart()[pri:0, instance:tests.CheckoutTest@55ca8de8]" started-at="2023-02-05T17:43:16 EET" name="AddProductToCart" finished-at="2023-02-05T17:43:21 EET" depends-on-methods="tests.CheckoutTest.SearchForProductCompleteName" duration-ms="4766" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddProductToCart -->
-        <test-method signature="Checkout()[pri:0, instance:tests.CheckoutTest@55ca8de8]" started-at="2023-02-05T17:43:21 EET" name="Checkout" finished-at="2023-02-05T17:43:36 EET" depends-on-methods="tests.CheckoutTest.AddProductToCart" duration-ms="14748" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Checkout -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.CheckoutTest@55ca8de8]" started-at="2023-02-05T17:43:36 EET" name="tearDown" finished-at="2023-02-05T17:43:46 EET" duration-ms="10233" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- tests.CheckoutTest -->
-    </test> <!-- Command line test -->
-  </suite> <!-- Command line suite -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
 </testng-results>

@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -12,7 +13,8 @@ import java.util.Date;
 import static utils.BrowserAction.closeAllBrowserTabs;
 import static utils.BrowserFactory.getBrowser;
 
-
+@Epic("Regression tests")
+@Feature("MyAccount tests")
 public class MyAccountTest {
 
     HomePage homePage;
@@ -27,9 +29,10 @@ public class MyAccountTest {
     String password;
 
 
-    @Test
+    @Test(description = "MyAccount Tests - Valid Registration")
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("Register new user with a valid email and valid password")
     public void RegisterNewUser() {
-
          email = jsonFileManager.getTestData("users.Email") + currentTime + "@"
                 + jsonFileManager.getTestData("users.emailDomain");
         password = jsonFileManager.getTestData("users.OldPassword");
@@ -42,7 +45,9 @@ public class MyAccountTest {
         Assert.assertEquals(msg, jsonFileManager.getTestData("messages.RegisterSuccessfully"));
     }
 
-    @Test(dependsOnMethods = "RegisterNewUser")
+    @Test(dependsOnMethods = "RegisterNewUser", description = "MyAccount Tests - Valid login")
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("Login with valid email and password")
     public void Login(){
         homePage.openLoginPage();
         loginPage.Login(email, password);
@@ -51,6 +56,8 @@ public class MyAccountTest {
     }
 
     @Test(dependsOnMethods = "Login")
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("Change password successfully")
     public void ChangePassword() {
         //Change password to the new password
         homePage.openMyAccount();
@@ -63,7 +70,7 @@ public class MyAccountTest {
         Assert.assertEquals(message, jsonFileManager.getTestData("messages.PasswordChanged"));
     }
 
-    @BeforeTest
+    @BeforeClass
     public void setup() {
         jsonFileManager = new JsonFileManager("src/test/data/MyAccountTestData.json");
         driver = getBrowser(jsonFileManager.getTestData("config.BrowserName"),
@@ -76,7 +83,7 @@ public class MyAccountTest {
         userRegistrationPage.navigateToRegisterPage();
     }
 
-    @AfterTest
+    @AfterClass
     public void tearDown() {
         closeAllBrowserTabs(driver);
     }

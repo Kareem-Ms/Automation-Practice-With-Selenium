@@ -1,12 +1,13 @@
 package pages;
 
+import io.qameta.allure.Step;
 import utils.ElementActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class CustomerInfoPage{
 
-    private WebDriver driver ;
+    WebDriver driver ;
     ElementActions actionsObject;
 
     public CustomerInfoPage(WebDriver driver) {
@@ -27,10 +28,12 @@ public class CustomerInfoPage{
     By ChangeConfirmationLocator = By.cssSelector("p.content");
 
 
+    @Step("Open Change password page")
     public void openChangePassword(){
         actionsObject.click(ChangePasswordLinkLocator);
     }
 
+    @Step("Change password using OldPassword: [0], NewPassword: [1], NewConfirmationPassword: [2]")
     public void ChangePassword(String OldPw ,String NewPw, String NewConfirmPw){
         actionsObject.type(OldPasswordLocator,OldPw);
         actionsObject.type(NewPasswordLocator,NewPw);
@@ -38,6 +41,7 @@ public class CustomerInfoPage{
         actionsObject.click(ChangePasswordBtnLocator);
     }
 
+    @Step("Get change password alert message")
     public String getConfirmationMessage(){
         return actionsObject.getText(ChangeConfirmationLocator);
     }

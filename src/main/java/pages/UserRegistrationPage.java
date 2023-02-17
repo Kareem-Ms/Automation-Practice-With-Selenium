@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.ElementActions;
@@ -19,7 +20,8 @@ public class UserRegistrationPage {
         actionObject = new ElementActions(driver);
     }
 
-    public void navigateToRegisterPage(){
+    @Step("Open registeration page")
+    public void navigateToRegisterPage() {
         navigateToUrl(driver, url);
     }
 
@@ -33,7 +35,8 @@ public class UserRegistrationPage {
     // we will need a method to register user with required fields
     //ana mesh 3ayz el data hna tb2a hard coded ana 3ayz el values tegy mn el test case 34an hayb2a feh test cases feha negative w positive scenarios
     //fa hnb3thom feh el parameter
-    public void registerWithRequiredFields(String First, String Last, String Email, String Password , String Confirmation){
+    @Step("Register with a firstname:[0],lastname: [1],Email: [2],password: [3],Confirmation password: [4]")
+    public void registerWithRequiredFields(String First, String Last, String Email, String Password, String Confirmation) {
         actionObject.click(getLocatorByID("gender-male"));
         actionObject.type(getLocatorByID("FirstName"), First);
         actionObject.type(getLocatorByID("LastName"), Last);
@@ -43,7 +46,7 @@ public class UserRegistrationPage {
         actionObject.click(getLocatorByID("register-button"));
     }
 
-    private By getLocatorByID(String ID){
+    private By getLocatorByID(String ID) {
         return By.id(ID);
     }
 

@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import utils.ElementActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,27 +21,27 @@ public class HomePage {
     By LogoutLinkLocator = By.className("ico-logout");
     By ShoppingCartNotificationLink = By.xpath("//p[@class = 'content']//a[text() ='shopping cart' ]");
 
+    @Step("Open home page")
     public void navigateToHomePage() {
         navigateToUrl(driver, url);
     }
 
-    //3ayz a3ml method b2a t3ml click 3ala el button da 34an ast5dmha fe el test cases bta3et el register
-    public void openRegistrationPage() {
-        openPage("ico-register");
-    }
-
+    @Step("Open login page")
     public void openLoginPage() {
         openPage("ico-login");
     }
 
+    @Step("Open my account page")
     public void openMyAccount() {
         openPage("ico-account");
     }
 
+    @Step("Check if logout link exists")
     public String CheckLougoutLink() {
         return actionObject.getText(LogoutLinkLocator);
     }
 
+    @Step("Open shopping cart from the link on notification")
     public void openNotificationShoppingCart() {
         actionObject.click(ShoppingCartNotificationLink);
     }

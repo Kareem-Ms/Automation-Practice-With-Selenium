@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -18,7 +19,8 @@ import static utils.BrowserAction.closeAllBrowserTabs;
 import static utils.BrowserFactory.getBrowser;
 
 
-
+@Epic("Regression tests")
+@Feature("Login tests")
 public class LoginTest {
 
     JsonFileManager jsonFileManager;
@@ -31,7 +33,9 @@ public class LoginTest {
     String email;
     String password;
 
-    @Test
+    @Test(description = "Login Tests - Valid Registration")
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("Register new user with a valid email and valid password")
     public void RegisterNewUser() {
 
         email = jsonFileManager.getTestData("users.RegisteredEmail")
@@ -45,7 +49,9 @@ public class LoginTest {
         Assert.assertEquals(msg, jsonFileManager.getTestData("messages.RegisterSuccessfully"));
     }
 
-    @Test(dependsOnMethods = "RegisterNewUser")
+    @Test(dependsOnMethods = "RegisterNewUser", description = "Login Tests - Valid login")
+    @Severity(SeverityLevel.BLOCKER)
+    @Description("Login with valid email and password")
     public void CheckLoginSuccessfully() {
         homePage.openLoginPage();
         loginPage.Login(email, password);
@@ -53,7 +59,9 @@ public class LoginTest {
         Assert.assertEquals(Result, jsonFileManager.getTestData("messages.LoginSuccessfully"));
     }
 
-    @Test
+    @Test(description = "Login Tests - Invalid login")
+    @Severity(SeverityLevel.CRITICAL)
+    @Description("Login with invalid email and password")
     public void CheckLoginFaild() {
         homePage.openLoginPage();
         String UnregisterEmail = jsonFileManager.getTestData("users.UnRegisteredEmail") + "@"

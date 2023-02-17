@@ -1,8 +1,8 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import utils.BrowserAction;
 import utils.ElementActions;
 
 public class CheckoutBillingAddressPage {
@@ -21,6 +21,7 @@ public class CheckoutBillingAddressPage {
     By PhoneNumberInputTextLocator = By.id("BillingNewAddress_PhoneNumber");
     By ShippingContinueButton = By.xpath("//h2[text() = 'Billing address']//parent::div//following-sibling::div//div[@id = 'billing-buttons-container' ]//button[@name='save']");
 
+    @Step("Fill checkout billing information with CountryName: [0],City: [1],Address: [2],ZipCode: [3],PhoneNumber: [4]")
     public void FillShippingInformation(String CountryName, String City, String Address1, String ZipCode, String PhoneNum ){
         actionObject.select(CountryDropdownLocator, ElementActions.SelectType.TEXT,CountryName);
         actionObject.type(CityTextInputLocator,City);

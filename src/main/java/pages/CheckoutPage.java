@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.ElementActions;
@@ -22,6 +23,7 @@ public class CheckoutPage {
     By ConfirmBtnLocator = By.cssSelector("button.confirm-order-next-step-button");
     By ConfirmationMsgLocator = By.xpath("//div[@class = 'section order-completed']//div[@class = 'title']//strong");
 
+    @Step("Fill main checkout information")
     public void FillCheckoutInformation(String CountryName, String City, String Address1, String ZipCode, String PhoneNum){
        BillingAddressObject.FillShippingInformation(CountryName, City, Address1, ZipCode, PhoneNum);
        actionObject.click(ShippingMethodContButton);
@@ -30,6 +32,7 @@ public class CheckoutPage {
        actionObject.click(ConfirmBtnLocator);
     }
 
+    @Step("Get checkout Alert message")
     public String getConfirmMessage(){
        return actionObject.getText(ConfirmationMsgLocator);
     }

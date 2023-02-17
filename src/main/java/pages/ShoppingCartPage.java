@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.ElementActions;
@@ -19,10 +20,12 @@ public class ShoppingCartPage {
     By TermsAndConditionInputLocator = By.id("termsofservice");
     By CheckOutButtonLocator = By.id("checkout");
 
+    @Step("Get the quantity of the product after opening the shopping cart")
     public String getProductQuantityInCart(String ProductName){
        return actionObject.getAccessibleName(getProductQunatityXpath(ProductName));
     }
 
+    @Step("Get total price of the product that exist in shopping cart")
     public String getProductTotalPrice(String ProductName){
         String TotalPriceWithoutSign = actionObject.getText(getTotalPriceXpath(ProductName)).substring(1);
         TotalPriceWithoutSign = TotalPriceWithoutSign.replaceAll(",", "");
@@ -30,6 +33,7 @@ public class ShoppingCartPage {
         return String.valueOf(totalPrice);
     }
 
+    @Step("Calculate the total price by multiplying Product quantity and Product price")
     public String getProductCalculatedTotalPrice(String ProductName){
         int quantity = Integer.parseInt(actionObject.getAccessibleName(getProductQunatityXpath(ProductName)));
         //remove $ sign from unit price and form it into integer
@@ -41,6 +45,7 @@ public class ShoppingCartPage {
         return String.valueOf(CalculatedTotal);
     }
 
+    @Step("Get the total price of the order in shopping cart")
     public String getOrderTotalPrice(){
         String TotalOrderPriceWithoutSign = actionObject.getText(TotalOrderLocator).substring(1);
         TotalOrderPriceWithoutSign = TotalOrderPriceWithoutSign.replaceAll(",", "");
@@ -48,6 +53,7 @@ public class ShoppingCartPage {
         return String.valueOf(OrderTotalPrice);
     }
 
+    @Step("Continue to checkout page")
     public void NavigateToCheckoutPage(){
         actionObject.click(TermsAndConditionInputLocator);
         actionObject.click(CheckOutButtonLocator);
