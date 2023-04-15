@@ -30,7 +30,6 @@ public class BrowserAction {
             }catch (WebDriverException rootCauseException){
                 System.out.println(rootCauseException.getMessage());
             }
-            driver = null;
         }else{
             //we print that the driver already closed
             System.out.println("Driver is already closed and driver object is null");

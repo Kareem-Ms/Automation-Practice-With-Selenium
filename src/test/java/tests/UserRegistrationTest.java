@@ -7,7 +7,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.UserRegisterResultPage;
 import pages.UserRegistrationPage;
 import utils.JsonFileManager;
 
@@ -20,11 +19,10 @@ import static utils.BrowserFactory.getBrowser;
 @Epic("Regression tests")
 public class UserRegistrationTest {
 
-    WebDriver driver;
+    private WebDriver driver;
     JsonFileManager jsonFileManager;
     HomePage homePage;
     UserRegistrationPage userRegistrationPage;
-    UserRegisterResultPage userRegisterResultPage;
     String currentTime = new SimpleDateFormat("ddMMyyyyHHmmssSSS").format(new Date());
 
     //hna hbd2 a7ot el test cases lel register
@@ -42,7 +40,7 @@ public class UserRegistrationTest {
         userRegistrationPage.registerWithRequiredFields(jsonFileManager.getTestData("users.firstname"),
                 jsonFileManager.getTestData("users.LastName"), email, password, password);
         //we will check that the user is registered
-        String msg = userRegisterResultPage.checkmsg();
+        String msg = userRegistrationPage.getRegistrationMsg();
         Assert.assertEquals(msg, jsonFileManager.getTestData("messages.RegisterSuccessfully"));
     }
 
@@ -53,7 +51,6 @@ public class UserRegistrationTest {
                 jsonFileManager.getTestData("config.ExecutionType"));
         homePage = new HomePage(driver);
         userRegistrationPage = new UserRegistrationPage(driver);
-        userRegisterResultPage = new UserRegisterResultPage(driver);
         userRegistrationPage.navigateToRegisterPage();
     }
 

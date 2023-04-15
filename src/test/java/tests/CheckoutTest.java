@@ -22,36 +22,32 @@ public class CheckoutTest {
     CheckoutPage checkoutPage;
     JsonFileManager jsonFileManager;
     UserRegistrationPage userRegistrationPage;
-    UserRegisterResultPage userRegisterResultPage;
     ProductDetailsPage productDetailsPage;
     ShoppingCartPage shoppingCartPage;
     String currentTime = new SimpleDateFormat("ddMMyyyyHHmmssSSS").format(new Date());
     String email;
     String password;
 
+    /////////////////// Test Cases //////////////////////
     @Test(description = "Checkout Test - Valid registration")
     @Severity(SeverityLevel.BLOCKER)
     @Description("Register new user with a valid email and valid password")
     public void RegisterNewUser() {
-        email = jsonFileManager.getTestData("users.RegisteredEmail") + currentTime
-                + "@" + jsonFileManager.getTestData("users.emailDomain");
+        email = jsonFileManager.getTestData("users.RegisteredEmail") + currentTime + "@" + jsonFileManager.getTestData("users.emailDomain");
         password = jsonFileManager.getTestData("users.Password");
-
-        userRegistrationPage.registerWithRequiredFields(jsonFileManager.getTestData("users.FirstName"),
-                jsonFileManager.getTestData("users.LastName"), email, password, password);
-
-        String msg = userRegisterResultPage.checkmsg();
-        Assert.assertEquals(msg, jsonFileManager.getTestData("messages.RegisterSuccessfully"));
+        String Firstname = jsonFileManager.getTestData("users.FirstName");
+        String Lastname = jsonFileManager.getTestData("users.LastName");
+        userRegistrationPage.registerWithRequiredFields(Firstname, Lastname, email, password, password);
+        assertOnRegistrationMsg(userRegistrationPage.getRegistrationMsg());
     }
 
     @Test(dependsOnMethods = "RegisterNewUser" , description = "Checkout Test - Valid login")
     @Severity(SeverityLevel.BLOCKER)
     @Description("Login with valid email and password")
     public void LoginSuccessfully() {
-        homePage.openLoginPage();
-        loginPage.Login(email, password);
-        String LogoutWord = homePage.CheckLougoutLink();
-        Assert.assertEquals(LogoutWord, jsonFileManager.getTestData("messages.LoginSuccessfully"));
+        homePage    .openLoginPage();
+        loginPage   .Login(email, password);
+        assertOnLogoutLinkExistence(homePage.CheckLougoutLink());
     }
 
     @Test(dependsOnMethods = "LoginSuccessfully", description = "Checkout Test - Search For Product with complete name")
@@ -59,9 +55,9 @@ public class CheckoutTest {
     @Description("Search for product using it's complete name successfully")
     public void SearchForProductCompleteName() {
         String Product_name = jsonFileManager.getTestData("Product.CompleteProductName");
-        searchPage.searchForProductCompleteName(Product_name);
-        searchPage.openProjectDetailsPage(Product_name);
-        Assert.assertEquals(productDetailsPage.getProductName(), Product_name);
+        searchPage  .searchForProductCompleteName(Product_name);
+        searchPage  .openProjectDetailsPage(Product_name);
+        assertThatProductTitleEqualsProductName(productDetailsPage.getProductName() , Product_name);
     }
 
     @Test(dependsOnMethods = "SearchForProductCompleteName",description = "Checkout Test - Add product to cart")
@@ -72,47 +68,39 @@ public class CheckoutTest {
         String quantity = jsonFileManager.getTestData("Product.quantity");
         String Product_name = jsonFileManager.getTestData("Product.CompleteProductName");
         productDetailsPage.AddProductToCart(quantity);
-        Assert.assertEquals(productDetailsPage.getSucessmsg(), jsonFileManager.getTestData("messages.AddToCartSuccessfully"));
+        assertThatProductAddedToCart(productDetailsPage.getSucessmsg());
 
-        //Check if quantity and price are correct in the cart
         homePage.openNotificationShoppingCart();
-        Assert.assertEquals(shoppingCartPage.getProductQuantityInCart(Product_name), quantity);
-
-        //Check if the total price is calculated correctly in shopping cart
-        String ProductTotalPrice = shoppingCartPage.getProductTotalPrice(Product_name);
-        Assert.assertEquals(ProductTotalPrice, shoppingCartPage.getProductCalculatedTotalPrice(Product_name));
-
-        //check if the total price in table equal to total order price
-        Assert.assertEquals(shoppingCartPage.getOrderTotalPrice(), ProductTotalPrice);
+        String ProductQuantityInCart = shoppingCartPage.getProductQuantityInCart(Product_name);
+        String ProductTotalPriceInCart = shoppingCartPage.getProductTotalPrice(Product_name);
+        String ProductCalculatedPrice = shoppingCartPage.getProductCalculatedTotalPrice(Product_name);
+        String OrderTotalPrice = shoppingCartPage.getOrderTotalPrice();
+        assertThatDataIsCorrectInCart(ProductQuantityInCart, quantity, ProductTotalPriceInCart, ProductCalculatedPrice, OrderTotalPrice);
     }
 
     @Test(dependsOnMethods = "AddProductToCart", description = "Checkout Test - Complete details of checkout")
     @Severity(SeverityLevel.CRITICAL)
     @Description("Complete checkout details successfully")
     public void Checkout() {
-        shoppingCartPage.NavigateToCheckoutPage();
-        checkoutPage.FillCheckoutInformation(jsonFileManager.getTestData("BillingAddress.CountryName"),
-                jsonFileManager.getTestData("BillingAddress.City"),
-                jsonFileManager.getTestData("BillingAddress.Address1"),
-                jsonFileManager.getTestData("BillingAddress.ZipCode"),
-                jsonFileManager.getTestData("BillingAddress.PhoneNumber"));
+        shoppingCartPage    .NavigateToCheckoutPage();
+        checkoutPage        .FillCheckoutInformation(jsonFileManager.getTestData("BillingAddress.CountryName")
+                            ,jsonFileManager.getTestData("BillingAddress.City")
+                            ,jsonFileManager.getTestData("BillingAddress.Address1")
+                            ,jsonFileManager.getTestData("BillingAddress.ZipCode")
+                            ,jsonFileManager.getTestData("BillingAddress.PhoneNumber"));
 
-        //Check if the order is done successfully
-        Assert.assertEquals(checkoutPage.getConfirmMessage(), jsonFileManager.getTestData("messages.OrderConfirmedSuccessfully"));
-
-
+        assertThatOrderIsDone(checkoutPage.getConfirmMessage());
     }
 
-
+    /////////////////// Configurations  //////////////////////
     @BeforeClass
     public void setUp() {
         jsonFileManager = new JsonFileManager("src/test/data/CheckoutTestData.json");
-        driver = getBrowser(jsonFileManager.getTestData("config.BrowserName"),
-                jsonFileManager.getTestData("config.ExecutionType"));
+        driver = getBrowser(jsonFileManager.getTestData("config.BrowserName")
+                ,jsonFileManager.getTestData("config.ExecutionType"));
         homePage = new HomePage(driver);
         userRegistrationPage = new UserRegistrationPage(driver);
         loginPage = new LoginPage(driver);
-        userRegisterResultPage = new UserRegisterResultPage(driver);
         searchPage = new SearchPage(driver);
         productDetailsPage = new ProductDetailsPage(driver);
         shoppingCartPage = new ShoppingCartPage(driver);
@@ -123,5 +111,40 @@ public class CheckoutTest {
     @AfterClass
     public void tearDown() {
         closeAllBrowserTabs(driver);
+    }
+
+    /////////////////// Assertions //////////////////////
+    private void assertOnRegistrationMsg(String ActualRegistrationMsg){
+        String expectedRegistrationMsg = jsonFileManager.getTestData("messages.RegisterSuccessfully");
+        Assert.assertEquals(ActualRegistrationMsg, expectedRegistrationMsg);
+    }
+
+    private void assertOnLogoutLinkExistence(String LogoutLinkText){
+        String ExpectedLogoutText = jsonFileManager.getTestData("messages.LoginSuccessfully");
+        Assert.assertEquals(ExpectedLogoutText,LogoutLinkText);
+    }
+
+    private void assertThatProductTitleEqualsProductName(String PrdouctDetailsTitle , String ProductName){
+        Assert.assertEquals(PrdouctDetailsTitle, ProductName);
+
+    }
+
+    private void assertThatProductAddedToCart(String ActualConfirmationMsg){
+        String ExpectedConfirmationMsg =jsonFileManager.getTestData("messages.AddToCartSuccessfully");
+        Assert.assertEquals(ActualConfirmationMsg, ExpectedConfirmationMsg);
+    }
+
+    private void assertThatDataIsCorrectInCart(String ProductQuantityInCart,String quantity,String ProductTotalPriceInCart,String ProductCalculatedPrice,String OrderTotalPrice){
+        //Check if quantity and price are correct in the cart
+        Assert.assertEquals(ProductQuantityInCart, quantity);
+        //Check if the total price is calculated correctly in shopping cart
+        Assert.assertEquals(ProductTotalPriceInCart,ProductCalculatedPrice);
+        //check if the total price in table equal to total order price
+        Assert.assertEquals(OrderTotalPrice, ProductTotalPriceInCart);
+    }
+
+    private void assertThatOrderIsDone(String ActualConfirmationMsg){
+        String ExpectedConfirmationMsg =  jsonFileManager.getTestData("messages.OrderConfirmedSuccessfully");
+        Assert.assertEquals(ActualConfirmationMsg,ExpectedConfirmationMsg);
     }
 }

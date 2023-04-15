@@ -1,8 +1,8 @@
 {
   "users": {
-    "firstname":"Mohamed",
+    "FirstName":"Mohamed",
     "LastName": "ahmed",
-    "Email": "Mohamed",
+    "RegisteredEmail": "Mohamed",
     "emailDomain": "gmail.com",
     "OldPassword": "tester123",
     "NewPassword": "tester1234"

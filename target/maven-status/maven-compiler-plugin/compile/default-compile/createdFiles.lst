@@ -5,7 +5,6 @@ pages\LoginPage.class
 pages\HomePage.class
 utils\JsonFileManager.class
 utils\ElementActions.class
-pages\UserRegisterResultPage.class
 utils\BrowserFactory.class
 pages\SearchPage.class
 pages\CheckoutPage.class

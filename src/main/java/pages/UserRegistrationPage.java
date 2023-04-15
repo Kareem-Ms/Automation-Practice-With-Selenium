@@ -10,7 +10,7 @@ import static utils.BrowserAction.navigateToUrl;
 //hna ana h3rf el webelemnts w el methods w bs h3ml call feh el tests lel methods deh
 public class UserRegistrationPage {
 
-    WebDriver driver;
+    private final WebDriver driver;
     ElementActions actionObject;
     String url = "https://demo.nopcommerce.com/register?returnUrl=%2F";
 
@@ -44,6 +44,11 @@ public class UserRegistrationPage {
         actionObject.type(getLocatorByID("Password"), Password);
         actionObject.type(getLocatorByID("ConfirmPassword"), Confirmation);
         actionObject.click(getLocatorByID("register-button"));
+    }
+
+    @Step("Get registration result message")
+    public String getRegistrationMsg(){
+        return actionObject.getText(By.className("result"));
     }
 
     private By getLocatorByID(String ID) {

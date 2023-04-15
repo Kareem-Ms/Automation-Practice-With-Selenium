@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage{
 
+    //////////////////// Variables \\\\\\\\\\\\\\\\\\\\\
     private final WebDriver driver;
     ElementActions actionObject;
 
@@ -15,14 +16,13 @@ public class LoginPage{
         actionObject = new ElementActions(driver);
     }
 
+    //////////////////// Locators \\\\\\\\\\\\\\\\\\\\\
     By  emailLocator = By.id("Email");
-
     By passwordLocator = By.id("Password");
-
     By LoginBtnLocator = By.cssSelector("button.button-1.login-button");
-
     By LoginErrorMessageLocator = By.cssSelector("div.message-error.validation-summary-errors");
 
+    //////////////////// Actions \\\\\\\\\\\\\\\\\\\\\
     @Step("Login with Email:[0] ,password:[1]")
     public void Login(String email, String password){
         actionObject.type(emailLocator,email);
