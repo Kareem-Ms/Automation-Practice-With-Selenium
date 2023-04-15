@@ -145,6 +145,6 @@ public class CheckoutTest {
 
     private void assertThatOrderIsDone(String ActualConfirmationMsg){
         String ExpectedConfirmationMsg =  jsonFileManager.getTestData("messages.OrderConfirmedSuccessfully");
-        //Assert.assertEquals(ActualConfirmationMsg,ExpectedConfirmationMsg);
+        Assert.assertEquals(ActualConfirmationMsg,ExpectedConfirmationMsg);
     }
 }
