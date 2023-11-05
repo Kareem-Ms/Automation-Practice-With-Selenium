@@ -26,6 +26,6 @@
   },
   "config": {
     "BrowserName": "chrome",
-    "ExecutionType": "local"
+    "ExecutionType": "remote"
   }
 }

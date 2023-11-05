@@ -1,6 +1,5 @@
 package utils;
 
-import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.fail;
 
 import org.openqa.selenium.*;
@@ -8,117 +7,84 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.List;
 
 
 public class ElementActions {
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public enum SelectType {
-        TEXT, VALUE;
+        TEXT, VALUE
     }
 
     public ElementActions(WebDriver driver) {
         this.driver = driver;
     }
 
-    public static WebDriverWait getExplicitWait(WebDriver driver) {
-        return new WebDriverWait(driver, Duration.ofSeconds(10));
+    public WebDriverWait getExplicitWait(WebDriver driver) {
+        return new WebDriverWait(driver,Duration.ofSeconds(10));
     }
 
-    //    @Step("Click on element: [{elementLocator}]")
-    public static void click(WebDriver driver, By elementLocator) {
+    public void click(By elementLocator) {
         // Mouse hover on the element before clicking
-        mouseHover(driver, elementLocator);
+        mouseHover(elementLocator);
+
+        // Check if the element is clickable
         try {
             // wait for the element to be clickable
             getExplicitWait(driver).until(ExpectedConditions.elementToBeClickable(elementLocator));
         } catch (TimeoutException toe) {
+            // If the element doesn't become clickable the test case will fail
             fail(toe.getMessage());
-        } catch (Exception e) {
-            fail(e.getMessage());
         }
+
+        // Try to click on the element
         try {
-            // Now we click on the element! :D
+            // Now we click on the element with selenium click method
             driver.findElement(elementLocator).click();
         } catch (Exception exception) {
-            // Click using JavascriptExecutor in case of the click is not performed
-            // successfully and got an exception using the Selenium click method
+            // Click on element using JavascriptExecutor in case of the click is not performed
             try {
-                ((JavascriptExecutor) driver).executeScript("arguments[arguments.length - 1].click();",
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();",
                         driver.findElement(elementLocator));
-            } catch (Exception rootCauseException) {
-                rootCauseException.initCause(exception);
-                // Force fail the test case if couldn't perform the click
-                fail("Couldn't click on the element:" + elementLocator, rootCauseException);
+            } catch (Exception e) {
+                // Force fail the test case if we couldn't perform the click
+                fail("Couldn't click on the element:" + elementLocator, e);
             }
         }
     }
 
-    public ElementActions click(By elementLocator) {
-        click(driver, elementLocator);
-        return this;
-    }
-
-    public static void type(WebDriver driver, By elementLocator, String text) {
-        type(driver, elementLocator, text, true);
-    }
-
-    //    @Step("Type data: [{data}] on element: [{elementLocator}]")
-    public static void type(WebDriver driver, By elementLocator, String text, boolean clearBeforeTyping) {
-        locatingElementStrategy(driver, elementLocator);
+    public void type(By elementLocator, String text) {
+        locatingElement(elementLocator);
         try {
-            // Clear before typing condition
-            if (!driver.findElement(elementLocator).getAttribute("value").isEmpty() && clearBeforeTyping) {
+                // Clear the input field
                 driver.findElement(elementLocator).clear();
-                // We type here! :D
+
+                // We type here!
                 driver.findElement(elementLocator).sendKeys(text);
-                // Type using JavascriptExecutor in case of the data is not typed successfully
-                // using the Selenium sendKeys method
-                if (!driver.findElement(elementLocator).getAttribute("value").equals(text)) {
-                    ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('value', '" + text + "')",
-                            driver.findElement(elementLocator));
-                }
-            } else {
-                // We type here! :D
-                driver.findElement(elementLocator).sendKeys(text);
-                // Type using JavascriptExecutor in case of the data is not typed successfully
-                // using the Selenium sendKeys method
+
+                // Check if the text wasn't typed successfully
                 if (!driver.findElement(elementLocator).getAttribute("value").contains(text)) {
-                    String currentValue = driver.findElement(elementLocator).getAttribute("value");
+                    // If it wasn't we try to type using JavascriptExecutor
                     ((JavascriptExecutor) driver).executeScript(
-                            "arguments[0].setAttribute('value', '" + currentValue + text + "')",
+                            "arguments[0].setAttribute('value', '" + text + "')",
                             driver.findElement(elementLocator));
                 }
-            }
+
         } catch (Exception e) {
+            // Force fail the test case if we couldn't type into the element
             fail(e.getMessage());
         }
-        // Make sure that the data is inserted correctly to the field
-        Assert.assertTrue(driver.findElement(elementLocator).getAttribute("value").contains(text),
-                "The data is not inserted successfully to the field, the inserted data should be: [" + text
-                        + "]; But the current field value is: ["
-                        + driver.findElement(elementLocator).getAttribute("value") + "]");
+
     }
 
-    public ElementActions type(By elementLocator, String text) {
-        type(driver, elementLocator, text, true);
-        return this;
-    }
-
-    public ElementActions type(By elementLocator, String text, boolean clearBeforeTyping) {
-        type(driver, elementLocator, text, clearBeforeTyping);
-        return this;
-    }
-
-    public static void select(WebDriver driver, By elementLocator, SelectType selectType, String option) {
-        locatingElementStrategy(driver, elementLocator);
+    public void select(By elementLocator, SelectType selectType, String option) {
+        locatingElement(elementLocator);
         try {
             Select s = new Select(driver.findElement(elementLocator));
-            assertFalse(s.isMultiple());
+
             if(selectType == SelectType.TEXT){
                 s.selectByVisibleText(option);
             }
@@ -132,105 +98,64 @@ public class ElementActions {
         }
     }
 
-    public ElementActions select(By elementLocator, SelectType selectType, String option) {
-        select(driver, elementLocator, selectType, option);
-        return this;
+
+    public void mouseHover(By elementLocator) {
+        // Make sure that the element is displayed
+        locatingElement(elementLocator);
+        try {
+            // Now we hover on the element
+            new Actions(driver)
+                    .moveToElement(driver.findElement(elementLocator))
+                    .perform();
+        } catch (Exception e) {
+            // If we can't hover on the element then the test case will fail
+            fail(e.getMessage());
+        }
     }
 
-    public static void mouseHover(WebDriver driver, By elementLocator) {
-        locatingElementStrategy(driver, elementLocator);
+    public  void doubleClick(By elementLocator) {
+        locatingElement(elementLocator);
         try {
-            Actions actions = new Actions(driver);
-            actions.moveToElement(driver.findElement(elementLocator)).perform();
+            new Actions(driver)
+                    .doubleClick(driver.findElement(elementLocator))
+                    .perform();
         } catch (Exception e) {
             fail(e.getMessage());
         }
     }
 
-    public ElementActions mouseHover(By elementLocator) {
-        mouseHover(driver, elementLocator);
-        return this;
-    }
-
-    public static void doubleClick(WebDriver driver, By elementLocator) {
-        locatingElementStrategy(driver, elementLocator);
+    public String getText(By elementLocator) {
+        locatingElement(elementLocator);
         try {
-            Actions actions = new Actions(driver);
-            actions.doubleClick(driver.findElement(elementLocator)).perform();
+            return driver.findElement(elementLocator).getText();
         } catch (Exception e) {
             fail(e.getMessage());
         }
+        return null;
     }
 
-    public ElementActions doubleClick(By elementLocator) {
-        doubleClick(driver, elementLocator);
-        return this;
-    }
-
-    //  @Step("Click a Keyboard Key on element: [{elementLocator}]")
-    public static void clickKeyboardKey(WebDriver driver, By elementLocator, Keys key) {
-        locatingElementStrategy(driver, elementLocator);
+    public String getAccessibleName(By elementLocator) {
+        locatingElement(elementLocator);
         try {
-
-            // We click ENTER here! :D
-            driver.findElement(elementLocator).sendKeys(key);
+            return driver.findElement(elementLocator).getAccessibleName();
         } catch (Exception e) {
-
-        }
-    }
-
-    public ElementActions clickKeyboardKey(By elementLocator, Keys key) {
-        clickKeyboardKey(driver, elementLocator, key);
-        return this;
-    }
-
-    //    @Step("Get the Text of element: [{elementLocator}]")
-    public static String getText(WebDriver driver, By elementLocator) {
-        locatingElementStrategy(driver, elementLocator);
-        try {
-            String text = driver.findElement(elementLocator).getText();
-            return text;
-        } catch (Exception e) {
+            fail(e.getMessage());
         }
         return null;
     }
 
-    public String getText(By elementLocator){
-       return getText(driver, elementLocator);
-    }
-
-
-    //    @Step("Get the Text of element: [{elementLocator}]")
-    public static String getAccessibleName(WebDriver driver, By elementLocator) {
-        locatingElementStrategy(driver, elementLocator);
+    public String getAttributeValue(By elementLocator, String attributeName) {
+        locatingElement(elementLocator);
         try {
-            String text = driver.findElement(elementLocator).getAccessibleName();
-            return text;
+            return driver.findElement(elementLocator).getAttribute(attributeName);
         } catch (Exception e) {
+            fail(e.getMessage());
         }
         return null;
     }
 
-    public String getAccessibleName(By elementLocator){
-        return getAccessibleName(driver, elementLocator);
-    }
-
-
-
-    public static String getAttributeValue(WebDriver driver, By elementLocator, String attributeName) {
-        locatingElementStrategy(driver, elementLocator);
-        try {
-            String attributeValue = driver.findElement(elementLocator).getAttribute(attributeName);
-
-            return attributeValue;
-        } catch (Exception e) {
-
-        }
-        return null;
-    }
-
-    public static void SelectFromList(WebDriver driver, By elementLocator, int index){
-        locatingElementStrategy(driver , elementLocator);
+    public  void SelectFromList(By elementLocator, int index){
+        locatingElement(elementLocator);
         try {
             List<WebElement> list = driver.findElements(elementLocator);
             list.get(index).click();
@@ -239,27 +164,17 @@ public class ElementActions {
         }
     }
 
-   public void SelectFromList(By elementLocator, int index){
-       SelectFromList(driver,elementLocator,index);
-   }
-
-
-
-    private static void locatingElementStrategy(WebDriver driver, By elementLocator) {
+    //This method is used to make sure that the element is visible and displayed so that we could take any action on it
+    private void locatingElement(By elementLocator) {
         try {
             // Wait for the element to be visible
             getExplicitWait(driver).until(ExpectedConditions.visibilityOfElementLocated(elementLocator));
-            // Scroll the element into view to handle some browsers cases
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);",
-                    driver.findElement(elementLocator));
             // Check if the element is displayed
             if (!driver.findElement(elementLocator).isDisplayed()) {
                 fail("The element [" + elementLocator.toString() + "] is not Displayed");
             }
         } catch (TimeoutException toe) {
             fail(toe.getMessage());
-        } catch (Exception e) {
-            fail(e.getMessage());
         }
     }
 

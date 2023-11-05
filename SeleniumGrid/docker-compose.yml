@@ -15,7 +15,9 @@ services:
       GRID_MAX_SESSION: 16
       GRID_BROWSER_TIMEOUT: 300
       GRID_TIMEOUT: 300
-#here we will specificy the first node by specifiing the image
+
+
+#here we will specify the first node by specifing the image
 #then we mention on the depends on "selenium-hub" we do this to declare that this container will not be up and running
 #before the "selenium-hub" container be up and running
   chrome:
@@ -30,11 +32,6 @@ services:
        #below we say that we will only be running at maximum 2 browsers on this container
       - SE_NODE_MAX_SESSIONS=2
 
-
-
-
-    # volumes:
-    #   - /dev/shm:/dev/shm
 
   firefox:
     image: selenium/node-firefox

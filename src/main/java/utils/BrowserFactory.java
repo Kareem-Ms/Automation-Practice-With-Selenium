@@ -1,6 +1,5 @@
 package utils;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -47,11 +46,9 @@ public class BrowserFactory {
         }
         else if (ExecutionType.equalsIgnoreCase("local")){
             if(BrowserName.equalsIgnoreCase("chrome")){
-                WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
             }
             else if (BrowserName.equalsIgnoreCase("firefox")){
-                WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
             }
         }
